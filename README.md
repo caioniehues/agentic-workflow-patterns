@@ -385,11 +385,12 @@ MIT License - See [LICENSE](LICENSE) for details.
 </p>
 
 <p align="center">
-  <a href="https://github.com/SuperNovae-studio">
-    <img src="https://avatars.githubusercontent.com/u/33066282?s=200&v=4" alt="SuperNovae Studio" width="50"/>
+  <a href="https://github.com/ThibautMelen">
+    <img src="https://avatars.githubusercontent.com/u/20891897?s=200&v=4" alt="ThibautMelen" width="40"/>
   </a>
-</p>
-
-<p align="center">
-  <sub>Made with ❤️ by <a href="https://github.com/ThibautMelen">@ThibautMelen</a> 🏴‍☠️ <a href="https://github.com/SuperNovae-studio">SuperNovae Studio</a></sub>
+  &nbsp;&nbsp;❤️&nbsp;&nbsp;
+  <a href="https://github.com/SuperNovae-studio">
+    <img src="https://avatars.githubusercontent.com/u/33066282?s=200&v=4" alt="SuperNovae Studio" width="40"/>
+  </a>
+  &nbsp;&nbsp;🏴‍☠️
 </p>
