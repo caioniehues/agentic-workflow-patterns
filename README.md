@@ -58,8 +58,8 @@ mindmap
 |--------------|-----------|
 | **Learn the basics** | [01-OFFICIAL-TERMINOLOGY.md](01-OFFICIAL-TERMINOLOGY.md) |
 | **Understand architecture** | [02-LAYER-ARCHITECTURE.md](02-LAYER-ARCHITECTURE.md) |
-| **See real examples** | [05-USE-CASES.md](05-USE-CASES.md) |
-| **Choose a pattern** | [06-PATTERN-SELECTION-GUIDE.md](06-PATTERN-SELECTION-GUIDE.md) |
+| **See real examples** | [04-USE-CASES.md](04-USE-CASES.md) |
+| **Choose a pattern** | [05-PATTERN-SELECTION-GUIDE.md](05-PATTERN-SELECTION-GUIDE.md) |
 | **Implement a pattern** | [03-AGENTIC-PATTERNS.md](03-AGENTIC-PATTERNS.md) |
 
 ---
@@ -125,10 +125,10 @@ mindmap
 | [01-OFFICIAL-TERMINOLOGY.md](01-OFFICIAL-TERMINOLOGY.md) | Components: 🐦 Subagent, 🦴 Command, 📚 Skill, 🪝 Hook |
 | [02-LAYER-ARCHITECTURE.md](02-LAYER-ARCHITECTURE.md) | 5-Layer system architecture |
 | [03-AGENTIC-PATTERNS.md](03-AGENTIC-PATTERNS.md) | 7 unified patterns + 2 mechanisms |
-| [05-USE-CASES.md](05-USE-CASES.md) | Real-world validated examples |
-| [06-PATTERN-SELECTION-GUIDE.md](06-PATTERN-SELECTION-GUIDE.md) | Decision trees for choosing patterns |
-| [07-MAPPING-GLOSSARY.md](07-MAPPING-GLOSSARY.md) | Cross-reference & definitions |
-| [08-STYLE-GUIDE.md](08-STYLE-GUIDE.md) | Colors, emojis, Mermaid standards |
+| [04-USE-CASES.md](04-USE-CASES.md) | Real-world validated examples |
+| [05-PATTERN-SELECTION-GUIDE.md](05-PATTERN-SELECTION-GUIDE.md) | Decision trees for choosing patterns |
+| [06-MAPPING-GLOSSARY.md](06-MAPPING-GLOSSARY.md) | Cross-reference & definitions |
+| [07-STYLE-GUIDE.md](07-STYLE-GUIDE.md) | Colors, emojis, Mermaid standards |
 
 ---
 
@@ -206,10 +206,10 @@ Long-Running (>10 min)        → 🖥️ Multi-Window Context
 ├── 01-OFFICIAL-TERMINOLOGY.md          # Components definitions
 ├── 02-LAYER-ARCHITECTURE.md            # 5-Layer system architecture
 ├── 03-AGENTIC-PATTERNS.md              # 7 unified patterns + 2 mechanisms
-├── 05-USE-CASES.md                     # Real-world examples
-├── 06-PATTERN-SELECTION-GUIDE.md       # Decision trees
-├── 07-MAPPING-GLOSSARY.md              # Cross-reference & definitions
-└── 08-STYLE-GUIDE.md                   # Colors, emojis, Mermaid standards
+├── 04-USE-CASES.md                     # Real-world examples
+├── 05-PATTERN-SELECTION-GUIDE.md       # Decision trees
+├── 06-MAPPING-GLOSSARY.md              # Cross-reference & definitions
+└── 07-STYLE-GUIDE.md                   # Colors, emojis, Mermaid standards
 ```
 
 ---

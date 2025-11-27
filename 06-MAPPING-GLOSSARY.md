@@ -1,10 +1,10 @@
 <div align="center">
 
-[🏠 Home](README.md) • [📖 Overview](00-OVERVIEW.md) • **07 Glossary**
+[🏠 Home](README.md) • [📖 Overview](00-OVERVIEW.md) • **06 Glossary**
 
-━━━━━━━━━━━━━●━━━━━━━━━━━━━━━━━ `7/8`
+━━━━━━━━━━━━●━━━━━━━━━━━━━━━━━━ `6/8`
 
-[← 06 Selection Guide](06-PATTERN-SELECTION-GUIDE.md) • [08 Style Guide →](08-STYLE-GUIDE.md)
+[← 05 Selection Guide](05-PATTERN-SELECTION-GUIDE.md) • [07 Style Guide →](07-STYLE-GUIDE.md)
 
 </div>
 
@@ -443,6 +443,6 @@ flowchart TB
 
 **━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━**
 
-[← 06 Selection Guide](06-PATTERN-SELECTION-GUIDE.md) • [🏠 Home](README.md) • [08 Style Guide →](08-STYLE-GUIDE.md)
+[← 05 Selection Guide](05-PATTERN-SELECTION-GUIDE.md) • [🏠 Home](README.md) • [07 Style Guide →](07-STYLE-GUIDE.md)
 
 </div>

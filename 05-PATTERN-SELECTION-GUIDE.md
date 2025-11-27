@@ -1,10 +1,10 @@
 <div align="center">
 
-[🏠 Home](README.md) • [📖 Overview](00-OVERVIEW.md) • **06 Selection Guide**
+[🏠 Home](README.md) • [📖 Overview](00-OVERVIEW.md) • **05 Selection Guide**
 
-━━━━━━━━━━━━●━━━━━━━━━━━━━━━━━━ `6/8`
+━━━━━━━━━━━●━━━━━━━━━━━━━━━━━━━ `5/8`
 
-[← 05 Use Cases](05-USE-CASES.md) • [07 Glossary →](07-MAPPING-GLOSSARY.md)
+[← 04 Use Cases](04-USE-CASES.md) • [06 Glossary →](06-MAPPING-GLOSSARY.md)
 
 </div>
 
@@ -30,14 +30,14 @@
 
 | Use Case | Primary Pattern | Secondary | Details |
 |----------|-----------------|-----------|---------|
-| Multi-Agent Research | 🦑 Subagent Orchestration | 🚂 Parallel | [→ Use Cases](05-USE-CASES.md#use-case-1-multi-agent-research-system) |
-| Code Review Pipeline | 🚂 Parallel Tool Calling | 🦑 Subagent | [→ Use Cases](05-USE-CASES.md#use-case-2-production-code-review) |
-| Multi-Locale Generation | 🧬 Master-Clone | 🧙 Wizard | [→ Use Cases](05-USE-CASES.md#use-case-3-multi-locale-content-generation) |
-| Personal Assistant | 📚 Progressive Skills | 🚦 Routing | [→ Use Cases](05-USE-CASES.md#use-case-4-intelligent-personal-assistant) |
-| Customer Support | 🚦 Routing | 🦑 Subagent | [→ Use Cases](05-USE-CASES.md#use-case-5-customer-support-automation) |
-| Data Migration | 🧙 Wizard Workflows | 🖥️ Multi-Window | [→ Use Cases](05-USE-CASES.md#use-case-6-data-pipeline-migration) |
+| Multi-Agent Research | 🦑 Subagent Orchestration | 🚂 Parallel | [→ Use Cases](04-USE-CASES.md#use-case-1-multi-agent-research-system) |
+| Code Review Pipeline | 🚂 Parallel Tool Calling | 🦑 Subagent | [→ Use Cases](04-USE-CASES.md#use-case-2-production-code-review) |
+| Multi-Locale Generation | 🧬 Master-Clone | 🧙 Wizard | [→ Use Cases](04-USE-CASES.md#use-case-3-multi-locale-content-generation) |
+| Personal Assistant | 📚 Progressive Skills | 🚦 Routing | [→ Use Cases](04-USE-CASES.md#use-case-4-intelligent-personal-assistant) |
+| Customer Support | 🚦 Routing | 🦑 Subagent | [→ Use Cases](04-USE-CASES.md#use-case-5-customer-support-automation) |
+| Data Migration | 🧙 Wizard Workflows | 🖥️ Multi-Window | [→ Use Cases](04-USE-CASES.md#use-case-6-data-pipeline-migration) |
 
-> See [05-USE-CASES.md](05-USE-CASES.md) for detailed architectures and implementation examples.
+> See [04-USE-CASES.md](04-USE-CASES.md) for detailed architectures and implementation examples.
 
 ---
 
@@ -496,6 +496,6 @@ flowchart TD
 
 **━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━**
 
-[← 05 Use Cases](05-USE-CASES.md) • [🏠 Home](README.md) • [07 Glossary →](07-MAPPING-GLOSSARY.md)
+[← 04 Use Cases](04-USE-CASES.md) • [🏠 Home](README.md) • [06 Glossary →](06-MAPPING-GLOSSARY.md)
 
 </div>

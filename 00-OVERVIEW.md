@@ -34,10 +34,10 @@
 | [01-TERMINOLOGY](01-OFFICIAL-TERMINOLOGY.md) | Claude Code components (Subagent, Command, Skill, Hook) |
 | [02-ARCHITECTURE](02-LAYER-ARCHITECTURE.md) | 5-Layer system architecture |
 | [03-AGENTIC-PATTERNS](03-AGENTIC-PATTERNS.md) | 7 unified patterns + 2 mechanisms |
-| [05-USE-CASES](05-USE-CASES.md) | **Real-world validated use cases** |
-| [06-PATTERN-SELECTION](06-PATTERN-SELECTION-GUIDE.md) | Decision tree for choosing patterns |
-| [07-MAPPING-GLOSSARY](07-MAPPING-GLOSSARY.md) | Cross-reference and definitions |
-| [08-STYLE-GUIDE](08-STYLE-GUIDE.md) | Colors, emojis, Mermaid standards |
+| [04-USE-CASES](04-USE-CASES.md) | **Real-world validated use cases** |
+| [05-PATTERN-SELECTION](05-PATTERN-SELECTION-GUIDE.md) | Decision tree for choosing patterns |
+| [06-MAPPING-GLOSSARY](06-MAPPING-GLOSSARY.md) | Cross-reference and definitions |
+| [07-STYLE-GUIDE](07-STYLE-GUIDE.md) | Colors, emojis, Mermaid standards |
 
 ---
 
@@ -190,12 +190,12 @@ flowchart TB
 3. Finally explore patterns as needed
 
 ### If you're choosing a pattern:
-1. Check [05-USE-CASES](05-USE-CASES.md) for real-world examples
-2. Use [06-PATTERN-SELECTION-GUIDE](06-PATTERN-SELECTION-GUIDE.md) for decision trees
+1. Check [04-USE-CASES](04-USE-CASES.md) for real-world examples
+2. Use [05-PATTERN-SELECTION-GUIDE](05-PATTERN-SELECTION-GUIDE.md) for decision trees
 
 ### If you're implementing:
 1. Check [03-AGENTIC-PATTERNS](03-AGENTIC-PATTERNS.md) for implementation details
-2. Use [07-MAPPING-GLOSSARY](07-MAPPING-GLOSSARY.md) for term lookups
+2. Use [06-MAPPING-GLOSSARY](06-MAPPING-GLOSSARY.md) for term lookups
 
 ---
 

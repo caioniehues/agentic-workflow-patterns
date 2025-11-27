@@ -4,7 +4,7 @@
 
 ━━━━━━━━━●━━━━━━━━━━━━━━━━━━━━━ `3/8`
 
-[← 02 Architecture](02-LAYER-ARCHITECTURE.md) • [05 Use Cases →](05-USE-CASES.md)
+[← 02 Architecture](02-LAYER-ARCHITECTURE.md) • [04 Use Cases →](04-USE-CASES.md)
 
 </div>
 
@@ -463,7 +463,7 @@ flowchart TB
     classDef main fill:#8b5cf6,stroke:#7c3aed,stroke-width:2px,color:#ffffff
     classDef subagent fill:#ec4899,stroke:#db2777,stroke-width:2px,color:#ffffff
 
-    INPUT["🙋‍♀️📥 Review this PR"]:::user --> ORCH["🐔🪺 Orchestrator"]:::main
+    INPUT["🙋‍♀️📥 Review this PR"]:::user --> ORCH["🐔🦑 Orchestrator"]:::main
 
     ORCH -->|"🐔🪺 Check vulns"| W1["🐦🔒 Security Expert"]:::subagent
     ORCH -->|"🐔🪺 Check perf"| W2["🐦⚡ Performance Expert"]:::subagent
@@ -1075,6 +1075,6 @@ flowchart TB
 
 **━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━**
 
-[← 02 Architecture](02-LAYER-ARCHITECTURE.md) • [🏠 Home](README.md) • [05 Use Cases →](05-USE-CASES.md)
+[← 02 Architecture](02-LAYER-ARCHITECTURE.md) • [🏠 Home](README.md) • [04 Use Cases →](04-USE-CASES.md)
 
 </div>

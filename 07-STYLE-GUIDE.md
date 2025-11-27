@@ -1,10 +1,10 @@
 <div align="center">
 
-[🏠 Home](README.md) • [📖 Overview](00-OVERVIEW.md) • **08 Style Guide**
+[🏠 Home](README.md) • [📖 Overview](00-OVERVIEW.md) • **07 Style Guide**
 
-━━━━━━━━━━━━━━●━━━━━━━━━━━━━━━━ `8/8`
+━━━━━━━━━━━━━●━━━━━━━━━━━━━━━━━ `7/8`
 
-[← 07 Glossary](07-MAPPING-GLOSSARY.md) • [🏠 Back to Home](README.md)
+[← 06 Glossary](06-MAPPING-GLOSSARY.md) • [🏠 Back to Home](README.md)
 
 </div>
 
@@ -580,6 +580,6 @@ Request    Plan      Show      User      User      Agent     Execute   Output   
 
 **━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━**
 
-[← 07 Glossary](07-MAPPING-GLOSSARY.md) • [🏠 Home](README.md) • [📖 Overview](00-OVERVIEW.md)
+[← 06 Glossary](06-MAPPING-GLOSSARY.md) • [🏠 Home](README.md) • [📖 Overview](00-OVERVIEW.md)
 
 </div>

@@ -1,10 +1,10 @@
 <div align="center">
 
-[🏠 Home](README.md) • [📖 Overview](00-OVERVIEW.md) • **05 Use Cases**
+[🏠 Home](README.md) • [📖 Overview](00-OVERVIEW.md) • **04 Use Cases**
 
-━━━━━━━━━━━●━━━━━━━━━━━━━━━━━━━ `5/8`
+━━━━━━━━━━●━━━━━━━━━━━━━━━━━━━━ `4/8`
 
-[← 03 Agentic Patterns](03-AGENTIC-PATTERNS.md) • [06 Selection Guide →](06-PATTERN-SELECTION-GUIDE.md)
+[← 03 Agentic Patterns](03-AGENTIC-PATTERNS.md) • [05 Selection Guide →](05-PATTERN-SELECTION-GUIDE.md)
 
 </div>
 
@@ -492,7 +492,7 @@ tools: Read, Write, Grep, Glob, Bash
 
 **━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━**
 
-[← 03 Agentic Patterns](03-AGENTIC-PATTERNS.md) • [🏠 Home](README.md) • [06 Selection Guide →](06-PATTERN-SELECTION-GUIDE.md)
+[← 03 Agentic Patterns](03-AGENTIC-PATTERNS.md) • [🏠 Home](README.md) • [05 Selection Guide →](05-PATTERN-SELECTION-GUIDE.md)
 
 </div>
 
