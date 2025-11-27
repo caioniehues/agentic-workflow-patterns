@@ -1,6 +1,28 @@
+<div align="center">
+
+[🏠 Home](README.md) • [📖 Overview](00-OVERVIEW.md) • **08 Style Guide**
+
+━━━━━━━━━━━━━━●━━━━━━━━━━━━━━━━ `8/8`
+
+[← 07 Glossary](07-MAPPING-GLOSSARY.md) • [🏠 Back to Home](README.md)
+
+</div>
+
+---
+
 # Style Guide: Colors & Emojis
 
 > Standardized visual language for all Mermaid diagrams in agentic documentation
+
+## 📑 Table of Contents
+
+| # | Section | Description |
+|---|---------|-------------|
+| 1 | [Understanding the Model](#understanding-the-model) | Layers vs Components |
+| 2 | [Emoji System](#emoji-system) | Complete reference |
+| 3 | [Color Palette](#color-palette) | Hex codes |
+| 4 | [Mermaid Classes](#mermaid-class-definitions) | Copy-paste blocks |
+| 5 | [Rules](#rules) | Do's and Don'ts |
 
 ---
 
@@ -25,8 +47,8 @@ Before using this style guide, understand the relationship between **Layers** an
 │  ├──────────────────────┼──────────────────────────────────────────────┤   │
 │  │ Layer 3: Delegation  │  🔀 Workflow definitions                     │   │
 │  ├──────────────────────┼──────────────────────────────────────────────┤   │
-│  │ Layer 4: Execution   │  🤖 Subagents work here                      │   │
-│  │                      │  🔌 MCP Tools execute here                   │   │
+│  │ Layer 4: Execution ⚡│  🤖 Subagents work here                      │   │
+│  │                      │  🛠️ Native, 🔌 MCP, 🖐️ Interaction tools     │   │
 │  ├──────────────────────┼──────────────────────────────────────────────┤   │
 │  │ Layer 5: State       │  💾 Data persists here                       │   │
 │  │                      │  🪝 Hooks trigger here                       │   │
@@ -52,10 +74,25 @@ Before using this style guide, understand the relationship between **Layers** an
 | **Skill** | 📚 | Purple | `#8b5cf6` | `#7c3aed` |
 | **Subagent** | 🤖 | Pink | `#ec4899` | `#db2777` |
 | **Task tool** | 📤 | Pink | `#ec4899` | `#db2777` |
-| **MCP Tool** | 🔌 | Amber | `#f59e0b` | `#d97706` |
 | **State** | 💾 | Emerald | `#10b981` | `#059669` |
 | **Hook** | 🪝 | Emerald | `#10b981` | `#059669` |
-| **AskUserQuestion** | ❓ | Teal | `#14b8a6` | `#0d9488` |
+
+### Tools (3 categories)
+
+| Category | Emoji | Color | Hex | Border | Examples |
+|----------|-------|-------|-----|--------|----------|
+| **Native Tools** | 🛠️ | Slate | `#64748b` | `#475569` | Read, Write, Edit, Bash, Glob, Grep |
+| **MCP Tools** | 🔌 | Amber | `#f59e0b` | `#d97706` | Context7, Perplexity, Firecrawl |
+| **User Interaction** | 🖐️ | Teal | `#14b8a6` | `#0d9488` | ❓ AskUserQuestion, 📋 TodoWrite |
+
+**Native Tools sub-categories** (optional, for precision):
+
+| Sub-category | Emoji | Tools |
+|--------------|-------|-------|
+| Read Operations | 🛠️👀 | Read, Glob, Grep |
+| Write Operations | 🛠️✏️ | Write, Edit, NotebookEdit |
+| System Operations | 🛠️💻 | Bash, BashOutput, KillShell |
+| Web Operations | 🛠️🌐 | WebFetch, WebSearch |
 
 ### Patterns (reusable design solutions)
 
@@ -134,17 +171,21 @@ Before using this style guide, understand the relationship between **Layers** an
 │  📚 Skill                            🧬 Master-Clone                        │
 │  🤖 Subagent                         🧙 Wizard Workflow                     │
 │  📤 Task tool                        🖥️ Multi-Window Context                │
-│  🔌 MCP Tool                         🎓 Progressive Skills                  │
-│  💾 State                            🎛️ Programmatic Orchestration          │
-│  🪝 Hook                                                                    │
-│  ❓ AskUserQuestion                  ANTHROPIC RESEARCH PATTERNS            │
-│                                      ───────────────────────                │
-│  STATUS                              ⛓️ Prompt Chaining                     │
-│  ──────                              🚦 Routing                             │
-│  ✅ Success    ❌ Error              🛤️ Parallelization                     │
-│  ⚠️ Warning    🔄 Progress           🎭 Orchestrator-Workers                │
-│  ⏳ Pending    ⏭️ Skip               👨‍🔧 Evaluator-Optimizer                 │
-│                                      🐔 Autonomous Agents                   │
+│  💾 State                            🎓 Progressive Skills                  │
+│  🪝 Hook                             🎛️ Programmatic Orchestration          │
+│                                                                             │
+│  TOOLS (3 categories)                                                       │
+│  ────────────────────                                                       │
+│  🛠️ Native Tools (Read, Write, Bash...)                                     │
+│  🔌 MCP Tools (Context7, Perplexity...)                                     │
+│  🖐️ User Interaction (❓ AskUser, 📋 Todo)                                  │
+│                                                                             │
+│  STATUS                                                                     │
+│  ──────                                                                     │
+│  ✅ Success    ❌ Error                                                     │
+│  ⚠️ Warning    🔄 Progress                                                  │
+│  ⏳ Pending    ⏭️ Skip                                                      │
+│                                                                             │
 │  PHASES                                                                     │
 │  ──────                                                                     │
 │  🏗️ Phase 1 (Foundation)                                                   │
@@ -189,12 +230,19 @@ Copy this block at the start of every Mermaid diagram:
 ```mermaid
 %%{init: {'theme': 'base', 'themeVariables': {'lineColor': '#64748b'}}}%%
 flowchart TB
-    %% Standard Color Classes
+    %% Standard Color Classes - Components
     classDef user fill:#6366f1,stroke:#4f46e5,stroke-width:2px,color:#ffffff
     classDef main fill:#8b5cf6,stroke:#7c3aed,stroke-width:2px,color:#ffffff
     classDef subagent fill:#ec4899,stroke:#db2777,stroke-width:2px,color:#ffffff
-    classDef tool fill:#f59e0b,stroke:#d97706,stroke-width:2px,color:#ffffff
     classDef state fill:#10b981,stroke:#059669,stroke-width:2px,color:#ffffff
+
+    %% Tool Categories (3 types)
+    classDef nativeTool fill:#64748b,stroke:#475569,stroke-width:2px,color:#ffffff
+    classDef mcpTool fill:#f59e0b,stroke:#d97706,stroke-width:2px,color:#ffffff
+    classDef userInteraction fill:#14b8a6,stroke:#0d9488,stroke-width:2px,color:#ffffff
+    classDef tool fill:#f59e0b,stroke:#d97706,stroke-width:2px,color:#ffffff  %% Alias for mcpTool (backward compat)
+
+    %% Patterns & Status
     classDef wizard fill:#14b8a6,stroke:#0d9488,stroke-width:2px,color:#ffffff
     classDef parallel fill:#3b82f6,stroke:#2563eb,stroke-width:2px,color:#ffffff
     classDef error fill:#ef4444,stroke:#dc2626,stroke-width:2px,color:#ffffff
@@ -242,9 +290,9 @@ flowchart TB
         SA2["🤖 core-formatting"]:::subagent
     end
 
-    subgraph L4["🔌 LAYER 4: EXECUTION"]
-        T1["🔌 Context7"]:::tool
-        T2["🔌 Perplexity"]:::tool
+    subgraph L4["⚡ LAYER 4: EXECUTION"]
+        T1["🔌 Context7"]:::mcpTool
+        T2["🔌 Perplexity"]:::mcpTool
     end
 
     subgraph L5["💾 LAYER 5: STATE"]
@@ -294,8 +342,12 @@ flowchart TB
   --color-user: #6366f1;
   --color-main-agent: #8b5cf6;
   --color-subagent: #ec4899;
-  --color-tool: #f59e0b;
   --color-state: #10b981;
+
+  /* Tool Colors (3 categories) */
+  --color-native-tool: #64748b;
+  --color-mcp-tool: #f59e0b;
+  --color-user-interaction: #14b8a6;
 
   /* Pattern Colors */
   --color-wizard: #14b8a6;
@@ -312,8 +364,10 @@ flowchart TB
   --border-user: #4f46e5;
   --border-main-agent: #7c3aed;
   --border-subagent: #db2777;
-  --border-tool: #d97706;
   --border-state: #059669;
+  --border-native-tool: #475569;
+  --border-mcp-tool: #d97706;
+  --border-user-interaction: #0d9488;
 
   /* Background Colors (lighter variants for subgraphs) */
   --bg-user: #e0e7ff;
@@ -326,4 +380,10 @@ flowchart TB
 
 ---
 
-*Return to [00-OVERVIEW.md](00-OVERVIEW.md) for navigation*
+<div align="center">
+
+**━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━**
+
+[← 07 Glossary](07-MAPPING-GLOSSARY.md) • [🏠 Home](README.md) • [📖 Overview](00-OVERVIEW.md)
+
+</div>

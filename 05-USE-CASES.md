@@ -1,6 +1,29 @@
+<div align="center">
+
+[🏠 Home](README.md) • [📖 Overview](00-OVERVIEW.md) • **05 Use Cases**
+
+━━━━━━━━━━━●━━━━━━━━━━━━━━━━━━━ `5/8`
+
+[← 04 Implementation](04-CLAUDE-CODE-PATTERNS.md) • [06 Selection Guide →](06-PATTERN-SELECTION-GUIDE.md)
+
+</div>
+
+---
+
 # Real-World Use Cases
 
 > Validated use cases from Anthropic Engineering and production systems
+
+## 📑 Table of Contents
+
+| # | Use Case | Patterns |
+|---|----------|----------|
+| 1 | [Multi-Agent Research](#use-case-1-multi-agent-research-system) | 🎪 + 🚂 |
+| 2 | [Code Review Pipeline](#use-case-2-production-code-review) | 🚂 + 🎪 |
+| 3 | [Multi-Locale Generation](#use-case-3-multi-locale-content-generation) | 🧬 + 🧙 |
+| 4 | [Personal Assistant](#use-case-4-intelligent-personal-assistant) | 🎓 |
+| 5 | [Customer Support](#use-case-5-customer-support-automation) | 🚦 + 🎪 |
+| 6 | [Data Migration](#use-case-6-data-pipeline-migration) | 🧙 + 🖥️ |
 
 ---
 
@@ -465,5 +488,11 @@ tools: Read, Write, Grep, Glob, Bash
 
 ---
 
-*See [06-PATTERN-SELECTION-GUIDE](06-PATTERN-SELECTION-GUIDE.md) for decision trees →*
+<div align="center">
+
+**━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━**
+
+[← 04 Implementation](04-CLAUDE-CODE-PATTERNS.md) • [🏠 Home](README.md) • [06 Selection Guide →](06-PATTERN-SELECTION-GUIDE.md)
+
+</div>
 

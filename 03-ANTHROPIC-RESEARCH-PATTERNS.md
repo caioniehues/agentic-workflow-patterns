@@ -1,6 +1,29 @@
+<div align="center">
+
+[🏠 Home](README.md) • [📖 Overview](00-OVERVIEW.md) • **03 Research Patterns**
+
+━━━━━━━━━●━━━━━━━━━━━━━━━━━━━━━ `3/8`
+
+[← 02 Architecture](02-LAYER-ARCHITECTURE.md) • [04 Implementation →](04-CLAUDE-CODE-PATTERNS.md)
+
+</div>
+
+---
+
 # Anthropic Research Patterns
 
 > 6 foundational patterns from Anthropic's "Building Effective Agents" paper
+
+## 📑 Table of Contents
+
+| # | Pattern | Description |
+|---|---------|-------------|
+| 1 | [⛓️ Prompt Chaining](#pattern-1-️-prompt-chaining) | Sequential steps |
+| 2 | [🚦 Routing](#pattern-2--routing) | Classification & dispatch |
+| 3 | [🛤️ Parallelization](#pattern-3-️-parallelization) | Concurrent execution |
+| 4 | [🎭 Orchestrator-Workers](#pattern-4--orchestrator-workers) | Manager + specialists |
+| 5 | [👨‍🔧 Evaluator-Optimizer](#pattern-5-️-evaluator-optimizer) | Iterative refinement |
+| 6 | [🐔 Autonomous Agents](#pattern-6--autonomous-agents) | Self-directed execution |
 
 ---
 
@@ -522,4 +545,10 @@ flowchart TB
 
 ---
 
-*See [04-CLAUDE-CODE-PATTERNS.md](04-CLAUDE-CODE-PATTERNS.md) for implementation patterns →*
+<div align="center">
+
+**━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━**
+
+[← 02 Architecture](02-LAYER-ARCHITECTURE.md) • [🏠 Home](README.md) • [04 Implementation →](04-CLAUDE-CODE-PATTERNS.md)
+
+</div>

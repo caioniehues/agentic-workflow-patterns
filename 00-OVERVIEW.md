@@ -1,6 +1,29 @@
+<div align="center">
+
+[🏠 Home](README.md) • **00 Overview**
+
+━━━━━━●━━━━━━━━━━━━━━━━━━━━━━━━━ `0/8`
+
+[01 Terminology →](01-OFFICIAL-TERMINOLOGY.md)
+
+</div>
+
+---
+
 # Claude Code Agentic Patterns - Documentation
 
 > Complete reference for understanding and implementing agentic patterns with Claude Code CLI
+
+## 📑 Table of Contents
+
+| # | Section | Description |
+|---|---------|-------------|
+| 1 | [Quick Navigation](#quick-navigation) | Links to all documents |
+| 2 | [Emoji Quick Reference](#emoji-quick-reference) | Visual legend |
+| 3 | [Two Pattern Classifications](#two-pattern-classifications) | Research vs Implementation |
+| 4 | [At a Glance](#at-a-glance-key-concepts) | Components & Layers |
+| 5 | [How to Read](#how-to-read-this-documentation) | Reading paths |
+| 6 | [Cross-Platform](#cross-platform-compatibility) | Compatibility matrix |
 
 ---
 
@@ -126,9 +149,9 @@ flowchart TB
         SKILL["📚 Skills"]:::main
     end
 
-    subgraph L4["🔌 Execution Layer"]
+    subgraph L4["⚡ Execution Layer"]
         SA["🤖 Subagents"]:::subagent
-        TOOLS["🔌 Tools"]:::tool
+        TOOLS["🛠️🔌🖐️ Tools"]:::tool
     end
 
     subgraph L5["💾 State Layer"]
@@ -201,7 +224,7 @@ mindmap
       👤 User Layer
       🧠 Main Agent Layer
       🔀 Delegation Layer
-      🔌 Execution Layer
+      ⚡ Execution Layer
       💾 State Layer
     Research Patterns
       ⛓️ Prompt Chaining
@@ -253,4 +276,12 @@ These patterns originate from Claude/Anthropic but many apply across AI framewor
 
 ---
 
-*Last updated: 2025-11-26*
+<div align="center">
+
+**━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━**
+
+[🏠 Home](README.md) • [01 Terminology →](01-OFFICIAL-TERMINOLOGY.md)
+
+*Last updated: 2025-01-27*
+
+</div>

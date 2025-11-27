@@ -1,6 +1,27 @@
+<div align="center">
+
+[🏠 Home](README.md) • [📖 Overview](00-OVERVIEW.md) • **07 Glossary**
+
+━━━━━━━━━━━━━●━━━━━━━━━━━━━━━━━ `7/8`
+
+[← 06 Selection Guide](06-PATTERN-SELECTION-GUIDE.md) • [08 Style Guide →](08-STYLE-GUIDE.md)
+
+</div>
+
+---
+
 # Mapping & Glossary
 
 > Complete cross-reference of all agentic terminology
+
+## 📑 Table of Contents
+
+| # | Section | Description |
+|---|---------|-------------|
+| 1 | [Master Mapping Table](#master-mapping-table) | Components → Layers → Patterns |
+| 2 | [Glossary A-Z](#glossary) | All terms defined |
+| 3 | [Common Confusions](#common-confusions-clarified) | Disambiguation |
+| 4 | [Quick Reference](#quick-reference-tables) | Color codes |
 
 ---
 
@@ -326,7 +347,7 @@ flowchart TB
 
     L1["👤 Layer 1: User"]:::user --> L2["🧠 Layer 2: Main Agent"]:::main
     L2 --> L3["🔀 Layer 3: Delegation"]:::subagent
-    L3 --> L4["🔌 Layer 4: Execution"]:::tool
+    L3 --> L4["⚡ Layer 4: Execution"]:::tool
     L4 --> L5["💾 Layer 5: State"]:::state
     L5 -.-> L2
 ```
@@ -417,4 +438,10 @@ flowchart TB
 
 ---
 
-*Return to [00-OVERVIEW.md](00-OVERVIEW.md) for navigation →*
+<div align="center">
+
+**━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━**
+
+[← 06 Selection Guide](06-PATTERN-SELECTION-GUIDE.md) • [🏠 Home](README.md) • [08 Style Guide →](08-STYLE-GUIDE.md)
+
+</div>

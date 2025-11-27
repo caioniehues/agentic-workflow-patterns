@@ -1,6 +1,30 @@
+<div align="center">
+
+[🏠 Home](README.md) • [📖 Overview](00-OVERVIEW.md) • **02 Architecture**
+
+━━━━━━━━●━━━━━━━━━━━━━━━━━━━━━━ `2/8`
+
+[← 01 Terminology](01-OFFICIAL-TERMINOLOGY.md) • [03 Research Patterns →](03-ANTHROPIC-RESEARCH-PATTERNS.md)
+
+</div>
+
+---
+
 # Layer Architecture
 
 > Understanding the 5-layer system architecture of Claude Code agentic systems
+
+## 📑 Table of Contents
+
+| # | Section | Description |
+|---|---------|-------------|
+| 1 | [Overview](#overview) | 5-layer diagram |
+| 2 | [👤 Layer 1: User](#-layer-1-user-layer) | Entry point |
+| 3 | [🧠 Layer 2: Main Agent](#-layer-2-main-agent-layer) | Orchestration |
+| 4 | [🔀 Layer 3: Delegation](#-layer-3-delegation-layer) | Workflow definition |
+| 5 | [⚡ Layer 4: Execution](#-layer-4-execution-layer) | Actual work |
+| 6 | [💾 Layer 5: State](#-layer-5-state-layer) | Persistence |
+| 7 | [Anti-Patterns](#anti-patterns) | What to avoid |
 
 ---
 
@@ -33,8 +57,8 @@ Claude Code operates through a layered architecture where each layer has specifi
 │                                   │                                         │
 │                                   ▼                                         │
 │  ┌─────────────────────────────────────────────────────────────────────┐   │
-│  │  🔌 LAYER 4: EXECUTION LAYER                                        │   │
-│  │  🤖 Subagents, 🔌 Tools - actual work execution                     │   │
+│  │  ⚡ LAYER 4: EXECUTION LAYER                                        │   │
+│  │  🤖 Subagents, 🛠️ Native, 🔌 MCP, 🖐️ Interaction                    │   │
 │  └────────────────────────────────┬────────────────────────────────────┘   │
 │                                   │                                         │
 │                                   ▼                                         │
@@ -100,7 +124,7 @@ Central orchestrator that interprets intent and coordinates execution.
 |----------------|-------------|
 | **Intent Recognition** | Understand what user wants |
 | **Pattern Selection** | Choose appropriate execution pattern |
-| **Task Delegation** | Spawn 🤖 subagents or use 🔌 tools |
+| **Task Delegation** | Spawn 🤖 subagents or use 🛠️🔌🖐️ tools |
 | **Result Synthesis** | Combine results into coherent response |
 
 ### Critical Rule
@@ -132,7 +156,7 @@ flowchart TB
 
     INPUT["👤 User Input"]:::user --> INTENT
     SYNTH --> OUTPUT["👤 User Response"]:::user
-    DELEGATE --> EXEC["🔌 Execution Layer"]:::tool
+    DELEGATE --> EXEC["⚡ Execution Layer"]:::tool
     EXEC --> SYNTH
 
     style MainAgentLayer fill:#f3e8ff,stroke:#8b5cf6,stroke-width:2px
@@ -180,7 +204,7 @@ sequenceDiagram
     participant U as 👤 User
     participant CMD as 🦴 Slash Command
     participant MA as 🧠 Main Agent
-    participant E as 🔌 Execution
+    participant E as ⚡ Execution
 
     U->>CMD: /generate fr-FR
     CMD->>CMD: Expand to prompt
@@ -208,7 +232,7 @@ flowchart LR
 
 ---
 
-## 🔌 Layer 4: Execution Layer
+## ⚡ Layer 4: Execution Layer
 
 ### Purpose
 Where actual work happens - code execution, file operations, API calls.
@@ -218,7 +242,9 @@ Where actual work happens - code execution, file operations, API calls.
 | Component | Emoji | Function | Spawned By |
 |-----------|-------|----------|------------|
 | **Subagents** | 🤖 | Autonomous task execution | 📤 Task tool |
-| **Tools** | 🔌 | Direct operations | 🧠 Main Agent / 🤖 Subagents |
+| **Native Tools** | 🛠️ | Built-in operations (Read, Write, Bash...) | 🧠 Main Agent / 🤖 Subagents |
+| **MCP Tools** | 🔌 | External services (Context7, Perplexity...) | 🧠 Main Agent / 🤖 Subagents |
+| **User Interaction** | 🖐️ | Human-in-the-loop (❓ AskUser, 📋 Todo) | 🧠 Main Agent / 🤖 Subagents |
 
 ### 🤖 Subagent Lifecycle
 
@@ -227,7 +253,7 @@ Where actual work happens - code execution, file operations, API calls.
 stateDiagram-v2
     [*] --> Spawned: 📤 Task tool called
     Spawned --> Executing: Receives prompt
-    Executing --> Working: Uses 🔌 tools
+    Executing --> Working: Uses 🛠️ 🔌 🖐️ tools
     Working --> Working: Iterates
     Working --> Completed: ✅ Task done
     Completed --> [*]: Returns result
@@ -238,26 +264,34 @@ stateDiagram-v2
     end note
 ```
 
-### 🔌 Tool Categories
+### Tool Categories (3 types)
 
 ```mermaid
 mindmap
-    root(("🔌 Tools"))
-        File Operations
-            Read
-            Write
-            Edit
-            Glob
-            Grep
-        System
-            Bash
-            📤 Task
-        Web
-            WebFetch
-            WebSearch
-        User Interaction
+    root(("⚡ Execution"))
+        🛠️ Native Tools
+            🛠️👀 Read Ops
+                Read
+                Glob
+                Grep
+            🛠️✏️ Write Ops
+                Write
+                Edit
+            🛠️💻 System Ops
+                Bash
+            🛠️🌐 Web Ops
+                WebFetch
+                WebSearch
+        🔌 MCP Tools
+            Context7
+            Perplexity
+            Firecrawl
+            Custom MCPs
+        🖐️ User Interaction
             ❓ AskUserQuestion
-            TodoWrite
+            📋 TodoWrite
+        📤 Task tool
+            Spawns 🤖 Subagents
 ```
 
 ### 🚂 Parallel Execution
@@ -318,7 +352,7 @@ flowchart TB
         CHECK["🖥️ Checkpoints"]:::state
     end
 
-    EXEC["🔌 Execution Layer"]:::tool -->|Reads/Writes| FILES
+    EXEC["⚡ Execution Layer"]:::tool -->|Reads/Writes| FILES
     EXEC -->|Updates| MEM
     EXEC -->|Saves| CHECK
     MA["🧠 Main Agent"]:::main -->|Loads| CLAUDE
@@ -355,7 +389,7 @@ sequenceDiagram
     participant U as 👤 User Layer
     participant MA as 🧠 Main Agent Layer
     participant DL as 🔀 Delegation Layer
-    participant EL as 🔌 Execution Layer
+    participant EL as ⚡ Execution Layer
     participant SL as 💾 State Layer
 
     U->>MA: 🦴 /generate fr-FR
@@ -385,7 +419,7 @@ sequenceDiagram
 | **User** | 👤 | Human action | Normalize | Prompt/Command |
 | **Main Agent** | 🧠 | Prompt | Orchestrate | Delegation calls |
 | **Delegation** | 🔀 | Command/Context | Define workflow | Structured task |
-| **Execution** | 🔌 | Task | Execute | Results |
+| **Execution** | ⚡ | Task | Execute (🛠️🔌🖐️) | Results |
 | **State** | 💾 | Data | Persist | Stored state |
 
 ---
@@ -423,4 +457,10 @@ flowchart TB
 
 ---
 
-*See [03-ANTHROPIC-RESEARCH-PATTERNS.md](03-ANTHROPIC-RESEARCH-PATTERNS.md) for theoretical patterns →*
+<div align="center">
+
+**━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━**
+
+[← 01 Terminology](01-OFFICIAL-TERMINOLOGY.md) • [🏠 Home](README.md) • [03 Research Patterns →](03-ANTHROPIC-RESEARCH-PATTERNS.md)
+
+</div>

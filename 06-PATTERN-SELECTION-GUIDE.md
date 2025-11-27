@@ -1,6 +1,28 @@
+<div align="center">
+
+[🏠 Home](README.md) • [📖 Overview](00-OVERVIEW.md) • **06 Selection Guide**
+
+━━━━━━━━━━━━●━━━━━━━━━━━━━━━━━━ `6/8`
+
+[← 05 Use Cases](05-USE-CASES.md) • [07 Glossary →](07-MAPPING-GLOSSARY.md)
+
+</div>
+
+---
+
 # Pattern Selection Guide
 
 > Decision trees and criteria for choosing the right agentic pattern
+
+## 📑 Table of Contents
+
+| # | Section | Description |
+|---|---------|-------------|
+| 1 | [Use Cases → Pattern](#real-world-use-cases--pattern) | Quick reference |
+| 2 | [By Task Complexity](#by-task-complexity) | Complexity-based |
+| 3 | [Decision Tree](#master-decision-tree) | Interactive flow |
+| 4 | [By Requirement](#pattern-by-requirement) | Feature matrix |
+| 5 | [Combination Rules](#combining-patterns) | Pattern combos |
 
 ---
 
@@ -470,4 +492,10 @@ flowchart TD
 
 ---
 
-*See [07-MAPPING-GLOSSARY.md](07-MAPPING-GLOSSARY.md) for complete term definitions →*
+<div align="center">
+
+**━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━**
+
+[← 05 Use Cases](05-USE-CASES.md) • [🏠 Home](README.md) • [07 Glossary →](07-MAPPING-GLOSSARY.md)
+
+</div>

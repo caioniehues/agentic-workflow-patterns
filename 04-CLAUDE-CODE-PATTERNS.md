@@ -1,6 +1,31 @@
+<div align="center">
+
+[🏠 Home](README.md) • [📖 Overview](00-OVERVIEW.md) • **04 Implementation**
+
+━━━━━━━━━━●━━━━━━━━━━━━━━━━━━━━ `4/8`
+
+[← 03 Research Patterns](03-ANTHROPIC-RESEARCH-PATTERNS.md) • [05 Use Cases →](05-USE-CASES.md)
+
+</div>
+
+---
+
 # Claude Code Implementation Patterns
 
 > 7 practical patterns for building agentic systems with Claude Code CLI
+
+## 📑 Table of Contents
+
+| # | Pattern | Description |
+|---|---------|-------------|
+| 0 | [🏎️ Direct Execution](#pattern-0-️-direct-execution-baseline) | Baseline (no pattern) |
+| 1 | [🎪 Subagent Orchestration](#pattern-1--subagent-orchestration) | Multi-agent delegation |
+| 2 | [🎓 Progressive Skills](#pattern-2--progressive-skills) | Capability enhancement |
+| 3 | [🚂 Parallel Tool Calling](#pattern-3--parallel-tool-calling) | Concurrent tools |
+| 4 | [🧬 Master-Clone](#pattern-4--master-clone) | Dynamic spawning |
+| 5 | [🖥️ Multi-Window Context](#pattern-5-️-multi-window-context) | Session management |
+| 6 | [🎛️ Programmatic Orchestration](#pattern-6-️-programmatic-orchestration) | SDK control |
+| 7 | [🧙 Wizard Workflows](#pattern-7--wizard-workflows) | Human-in-the-loop |
 
 ---
 
@@ -957,4 +982,10 @@ flowchart TB
 
 ---
 
-*See [06-PATTERN-SELECTION-GUIDE.md](06-PATTERN-SELECTION-GUIDE.md) for choosing patterns →*
+<div align="center">
+
+**━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━**
+
+[← 03 Research Patterns](03-ANTHROPIC-RESEARCH-PATTERNS.md) • [🏠 Home](README.md) • [05 Use Cases →](05-USE-CASES.md)
+
+</div>

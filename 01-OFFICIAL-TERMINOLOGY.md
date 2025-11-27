@@ -1,6 +1,30 @@
+<div align="center">
+
+[🏠 Home](README.md) • [📖 Overview](00-OVERVIEW.md) • **01 Terminology**
+
+━━━━━━━●━━━━━━━━━━━━━━━━━━━━━━━ `1/8`
+
+[← 00 Overview](00-OVERVIEW.md) • [02 Architecture →](02-LAYER-ARCHITECTURE.md)
+
+</div>
+
+---
+
 # Official Claude Code Terminology
 
 > Definitive reference for Claude Code component terminology
+
+## 📑 Table of Contents
+
+| # | Section | Description |
+|---|---------|-------------|
+| 1 | [The Four Core Components](#the-four-core-components) | Overview diagram |
+| 2 | [🤖 Subagent](#1--subagent) | Autonomous task execution |
+| 3 | [🦴 Slash Command](#2--slash-command) | User-invokable workflows |
+| 4 | [📚 Skill](#3--skill) | Reusable capabilities |
+| 5 | [🪝 Hook](#4--hook) | Event-driven automation |
+| 6 | [Comparison Table](#comparison-table) | Side-by-side comparison |
+| 7 | [Naming Conventions](#naming-conventions) | Official terms |
 
 ---
 
@@ -461,4 +485,10 @@ This is the key component for 🧙 **Wizard Workflows** pattern.
 
 ---
 
-*See [02-LAYER-ARCHITECTURE.md](02-LAYER-ARCHITECTURE.md) for how these components interact*
+<div align="center">
+
+**━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━**
+
+[← 00 Overview](00-OVERVIEW.md) • [🏠 Home](README.md) • [02 Architecture →](02-LAYER-ARCHITECTURE.md)
+
+</div>
