@@ -4,7 +4,7 @@
 
 ━━━━━━━━●━━━━━━━━━━━━━━━━━━━━━━ `2/8`
 
-[← 01 Terminology](01-OFFICIAL-TERMINOLOGY.md) • [03 Research Patterns →](03-ANTHROPIC-RESEARCH-PATTERNS.md)
+[← 01 Terminology](01-OFFICIAL-TERMINOLOGY.md) • [03 Agentic Patterns →](03-AGENTIC-PATTERNS.md)
 
 </div>
 
@@ -58,7 +58,7 @@ Claude Code operates through a layered architecture where each layer has specifi
 │                                   ▼                                         │
 │  ┌─────────────────────────────────────────────────────────────────────┐   │
 │  │  ⚡ LAYER 4: EXECUTION LAYER                                        │   │
-│  │  🐦 Subagents, 🔧 Native, 🔌 MCP, 💁‍♀️ Interaction                    │   │
+│  │  🐦 Subagents, 🔧 Built-in, 🔌 External (MCP), 💁‍♀️ Interaction        │   │
 │  └────────────────────────────────┬────────────────────────────────────┘   │
 │                                   │                                         │
 │                                   ▼                                         │
@@ -219,7 +219,7 @@ sequenceDiagram
 ```mermaid
 %%{init: {'theme': 'base', 'themeVariables': {'lineColor': '#64748b'}}}%%
 flowchart LR
-    classDef skill fill:#10b981,stroke:#059669,stroke-width:2px,color:#ffffff
+    classDef skill fill:#8b5cf6,stroke:#7c3aed,stroke-width:2px,color:#ffffff
     classDef decision fill:#f59e0b,stroke:#d97706,stroke-width:2px,color:#ffffff
 
     REQ[Request] --> CHECK{"📚 Matches Skill?"}:::decision
@@ -241,8 +241,8 @@ Where actual work happens - code execution, file operations, API calls.
 
 | Component | Emoji | Function | Spawned By |
 |-----------|-------|----------|------------|
-| **Subagents** | 🐦 | Autonomous task execution | 📤 Task tool |
-| **Native Tools** | 🔧 | Built-in operations (Read, Write, Bash...) | 🐔 Main Agent / 🐦 Subagents |
+| **Subagents** | 🐦 | Autonomous task execution | Task tool (🪺 spawn) |
+| **Built-in Tools** | 🔧 | Core operations (Read, Write, Bash...) | 🐔 Main Agent / 🐦 Subagents |
 | **MCP Tools** | 🔌 | External services (Context7, Perplexity...) | 🐔 Main Agent / 🐦 Subagents |
 | **User Interaction** | 💁‍♀️ | Human-in-the-loop (❓ AskUser, 📋 Todo) | 🐔 Main Agent / 🐦 Subagents |
 
@@ -251,7 +251,7 @@ Where actual work happens - code execution, file operations, API calls.
 ```mermaid
 %%{init: {'theme': 'base', 'themeVariables': {'lineColor': '#64748b'}}}%%
 stateDiagram-v2
-    [*] --> Spawned: 📤 Task tool called
+    [*] --> Spawned: 🪺 Task tool called
     Spawned --> Executing: Receives prompt
     Executing --> Working: Uses 🔧 🔌 💁‍♀️ tools
     Working --> Working: Iterates
@@ -269,20 +269,22 @@ stateDiagram-v2
 ```mermaid
 mindmap
     root(("⚡ Execution"))
-        🔧 Native Tools
-            🔧👀 Read Ops
+        🔧 Built-in Tools
+            🔧👀 Read file
                 Read
-                Glob
+            🔧🔍 Search content
                 Grep
-            🔧✏️ Write Ops
+            🔧🗂️ Search files
+                Glob
+            🔧✏️ Write ops
                 Write
                 Edit
-            🔧💻 System Ops
+            🔧📟 Shell ops
                 Bash
-            🔧🌐 Web Ops
+            🔧🌐 Web ops
                 WebFetch
                 WebSearch
-        🔌 MCP Tools
+        🔌 External MCP
             Context7
             Perplexity
             Firecrawl
@@ -290,7 +292,7 @@ mindmap
         💁‍♀️ User Interaction
             ❓ AskUserQuestion
             📋 TodoWrite
-        📤 Task tool
+        🪺 Task spawn
             Spawns 🐦 Subagents
 ```
 
@@ -305,9 +307,9 @@ flowchart TB
 
     MA["🐔 Main Agent"]:::main
 
-    MA -->|📤 Task| SA1["🐦 Subagent 1"]:::subagent
-    MA -->|📤 Task| SA2["🐦 Subagent 2"]:::subagent
-    MA -->|📤 Task| SA3["🐦 Subagent 3"]:::subagent
+    MA -->|🪺 Task| SA1["🐦 Subagent 1"]:::subagent
+    MA -->|🪺 Task| SA2["🐦 Subagent 2"]:::subagent
+    MA -->|🪺 Task| SA3["🐦 Subagent 3"]:::subagent
 
     SA1 --> R1[Result 1]
     SA2 --> R2[Result 2]
@@ -400,7 +402,7 @@ sequenceDiagram
     MA->>SL: Load 📋 CLAUDE.md context
     SL-->>MA: Project instructions
 
-    MA->>EL: 🐔🪺 📤 Task(🐦 subagent)
+    MA->>EL: 🐔🪺 Task(🐦 subagent)
     EL->>SL: Read source files
     SL-->>EL: File contents
     EL->>SL: Write output files
@@ -448,8 +450,8 @@ flowchart TB
 
     MA["🐔 Main Agent"]:::main
 
-    MA -->|📤 Task| SA1["🐦 Subagent 1"]:::subagent
-    MA -->|📤 Task| SA2["🐦 Subagent 2"]:::subagent
+    MA -->|🪺 Task| SA1["🐦 Subagent 1"]:::subagent
+    MA -->|🪺 Task| SA2["🐦 Subagent 2"]:::subagent
 
     SA1 -->|Result| MA
     SA2 -->|Result| MA
@@ -461,6 +463,6 @@ flowchart TB
 
 **━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━**
 
-[← 01 Terminology](01-OFFICIAL-TERMINOLOGY.md) • [🏠 Home](README.md) • [03 Research Patterns →](03-ANTHROPIC-RESEARCH-PATTERNS.md)
+[← 01 Terminology](01-OFFICIAL-TERMINOLOGY.md) • [🏠 Home](README.md) • [03 Agentic Patterns →](03-AGENTIC-PATTERNS.md)
 
 </div>

@@ -38,7 +38,7 @@
 │ Slash Command   │ Delegation Layer │ Wizard Workflows, All entry points      │
 │ Skill           │ Delegation Layer │ Progressive Skills                      │
 │ Hook            │ State Layer      │ Programmatic Orchestration              │
-│ Task tool       │ Execution Layer  │ Subagent Orchestration, Master-Clone    │
+│ Task (🪺 spawn) │ Execution Layer  │ Subagent Orchestration, Master-Clone    │
 │ AskUserQuestion │ User Layer       │ Wizard Workflows                        │
 │ Tools (Read,..) │ Execution Layer  │ All patterns                            │
 └─────────────────┴──────────────────┴─────────────────────────────────────────┘
@@ -58,7 +58,7 @@
 │ 🛤️ Parallelization    │ Parallel Tool Calling    │ Multiple tools/message     │
 │                       │ Master-Clone             │ Isolated subagents         │
 ├───────────────────────┼──────────────────────────┼────────────────────────────┤
-│ 🎭 Orchestrator-Workers │ Subagent Orchestration   │ Task tool + agents/*.md    │
+│ 🦑 Subagent Orchestration│ Subagent Orchestration   │ Task + agents/*.md         │
 ├───────────────────────┼──────────────────────────┼────────────────────────────┤
 │ 🩻 Evaluator-Optimizer │ (Loop with validation)   │ Iterative tool calls       │
 ├───────────────────────┼──────────────────────────┼────────────────────────────┤
@@ -121,14 +121,14 @@ AskUserQuestion(questions=[{
 ### H
 
 **Hook**
-: Shell command triggered by Claude Code events (pre/post tool execution, prompts).
+: Shell command or prompt triggered by Claude Code events. Types: `command` (shell) or `prompt` (LLM-based).
 
 ```json
 {
   "hooks": {
-    "post-tool": [{
-      "tool": "Write",
-      "command": "npm run lint"
+    "PostToolUse": [{
+      "matcher": "Write",
+      "hooks": [{ "type": "command", "command": "npm run lint" }]
     }]
   }
 }
@@ -221,13 +221,13 @@ argument-hint: [locale]
 ---
 ```
 
-> Command name from filename. Supported: `description`, `argument-hint`, `allowed-tools`, `model`.
+> Command name from filename. Supported: `description`, `argument-hint`, `allowed-tools`, `model`, `disable-model-invocation`.
 
 **State Layer**
 : Layer 5 in the architecture. Handles persistence, memory, and context.
 
 **Subagent**
-: Specialized agent spawned via Task tool. Cannot spawn other subagents. Located in `.claude/agents/*.md`.
+: Specialized agent 🪺 spawned via Task tool. Cannot spawn other subagents. Located in `.claude/agents/*.md`.
 
 ```markdown
 # .claude/agents/reviewer.md
@@ -245,8 +245,8 @@ tools: Read, Grep, Glob
 
 ### T
 
-**Task tool**
-: The mechanism for spawning Subagents.
+**Task tool (🪺 spawn)**
+: The mechanism for 🪺 spawning Subagents.
 
 ```python
 Task(
@@ -282,11 +282,11 @@ Task(
 
 ```mermaid
 %%{init: {'theme': 'base', 'themeVariables': {'lineColor': '#64748b'}}}%%
-graph TB
+flowchart TB
     classDef main fill:#8b5cf6,stroke:#7c3aed,stroke-width:2px,color:#ffffff
     classDef subagent fill:#ec4899,stroke:#db2777,stroke-width:2px,color:#ffffff
     classDef user fill:#6366f1,stroke:#4f46e5,stroke-width:2px,color:#ffffff
-    classDef skill fill:#10b981,stroke:#059669,stroke-width:2px,color:#ffffff
+    classDef skill fill:#8b5cf6,stroke:#7c3aed,stroke-width:2px,color:#ffffff
 
     subgraph Components
         MA["🐔 Main Agent"]:::main
@@ -296,7 +296,7 @@ graph TB
         HOOK["🪝 Hook"]:::main
     end
 
-    MA -->|"📤 spawns via Task"| SA
+    MA -->|"🪺 spawns via Task"| SA
     CMD -->|triggers| MA
     SKILL -->|enhances| MA
     HOOK -->|automates| MA
@@ -305,7 +305,8 @@ graph TB
 ### Pattern Relationships
 
 ```mermaid
-graph LR
+%%{init: {'theme': 'base', 'themeVariables': {'lineColor': '#64748b'}}}%%
+flowchart LR
     subgraph Research["Anthropic Research (6)"]
         R1[Prompt Chaining]
         R2[🚦 Routing]
@@ -371,7 +372,7 @@ flowchart TB
 |------|---------|
 | **Agent** | Any autonomous AI system |
 | **Main Agent** | The primary Claude Code instance |
-| **Subagent** | Agent spawned by Main Agent via Task tool |
+| **Subagent** | Agent 🪺 spawned by Main Agent via Task |
 
 **Subagents cannot spawn other Subagents.**
 
@@ -428,7 +429,7 @@ flowchart TB
 |-------|-----|---------|-------|
 | Indigo | `#6366f1` | User, Slash Commands | 🙋‍♀️ 🦴 |
 | Purple | `#8b5cf6` | Main Agent, Skills | 🐔 📚 |
-| Pink | `#ec4899` | Subagent, Task tool | 🐦 📤 |
+| Pink | `#ec4899` | Subagent | 🐦 |
 | Amber | `#f59e0b` | MCP Tools | 🔌 |
 | Emerald | `#10b981` | State, Success | 💾 ✅ |
 | Blue | `#3b82f6` | Parallel, Multi-Window | 🚂 🖥️ |

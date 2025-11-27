@@ -47,13 +47,14 @@ Every element in a diagram answers: **WHO does WHAT?**
 │  ├─────────┼─────────┼──────────────────────────────────────────────────┤  │
 │  │ 🙆‍♀️      │ User    │ User (neutral/idle state)                        │  │
 │  │ 🙋‍♀️📥    │ User    │ User sends input                                 │  │
-│  │ 💁‍♀️📤    │ User    │ User receives output                             │  │
+│  │ 📤💁‍♀️    │ User    │ User receives output                             │  │
 │  │ 🐔💭    │ Main    │ Main Agent thinks/reasons                        │  │
 │  │ 🐔🚦    │ Main    │ Main Agent routes/decides                        │  │
-│  │ 🐔🪺    │ Main    │ Main Agent spawns Subagent (via Task tool)       │  │
+│  │ 🐔🪺    │ Main    │ Main Agent spawns Subagent (via Task)            │  │
 │  │ 🐔🔀    │ Main    │ Main Agent splits task                           │  │
 │  │ 🐔🌀    │ Main    │ Main Agent merges results                        │  │
-│  │ 🐔🔧    │ Main    │ Main Agent uses Native tool                      │  │
+│  │ 🐔🔧    │ Main    │ Main Agent uses Built-in tool                    │  │
+│  │ 🐔🔌🌐  │ Main    │ Main Agent calls External API (MCP)              │  │
 │  │ 🐦⚡    │ Sub     │ Subagent executes task                           │  │
 │  │ 🐦📤    │ Sub     │ Subagent returns result                          │  │
 │  │ 🐦💤    │ Sub     │ Subagent idle/not chosen (Routing)               │  │
@@ -90,7 +91,7 @@ Every element in a diagram answers: **WHO does WHAT?**
 │  🐔 Main Agent  → The hen that orchestrates (can spawn 🐦)                  │
 │  🐦 Subagent    → The bird that executes (cannot spawn other 🐦)            │
 │                                                                             │
-│  HIERARCHY: 🙋‍♀️📥 → 🐔 → 🐦 → 💁‍♀️📤                                           │
+│  HIERARCHY: 🙋‍♀️📥 → 🐔 → 🐦 → 📤💁‍♀️                                           │
 │                                                                             │
 └─────────────────────────────────────────────────────────────────────────────┘
 ```
@@ -103,8 +104,8 @@ Every element in a diagram answers: **WHO does WHAT?**
 
 | Action | Emoji | Description | Used with |
 |--------|-------|-------------|-----------|
-| **Input** | 📥 | Receives/Sends data | 🙋‍♀️📥 (user sends) |
-| **Output** | 📤 | Produces/Returns result | 🐔📤, 🐦📤, 💁‍♀️📤 (user receives) |
+| **Input** | 📥 | Data enters system | 🙋‍♀️📥 (user sends) |
+| **Output** | 📤 | Data exits system | 🐔📤, 🐦📤 (agent outputs), 📤💁‍♀️ (user receives) |
 | **Réflexion** | 💭 | Thinks/Reasons/Prompts | 🐔💭, 🐦💭 |
 | **Routing** | 🚦 | Decides direction | 🐔🚦 |
 | **Spawn** | 🪺 | Creates/Spawns subagent | 🐔🪺 |
@@ -120,26 +121,43 @@ Every element in a diagram answers: **WHO does WHAT?**
 | **Continue** | ▶️ | Continues execution | 🐔▶️ |
 | **Idle/Sleep** | 💤 | Not chosen/Inactive | 🐦💤, 🐔💤 |
 
+> **📥/📤 Order Rule:** The position of 📥/📤 indicates data flow direction:
+> - `ACTEUR📥` = Acteur sends INTO system (e.g., 🙋‍♀️📥)
+> - `ACTEUR📤` = Acteur produces output (e.g., 🐔📤, 🐦📤)
+> - `📤ACTEUR` = Acteur receives FROM system (e.g., 📤💁‍♀️)
+
 ---
 
 ## Tools
 
-**WHAT do they use?** (3 types)
+**WHAT do they use?** (by source)
 
-| Tool Type | Emoji | Color | Hex | Examples |
-|-----------|-------|-------|-----|----------|
-| **Native** | 🔧 | Slate | `#64748b` | Read, Write, Edit, Bash, Glob, Grep |
-| **MCP** | 🔌 | Amber | `#f59e0b` | Context7, Perplexity, Firecrawl |
-| **User Interaction** | 💁‍♀️ | Teal | `#14b8a6` | AskUserQuestion, TodoWrite |
+> Tools are distinguished by their **source**, not their type. Both are tools the agent uses.
 
-### Native Tool Sub-categories (optional precision)
+| Source | Emoji | Color | Hex | Examples |
+|--------|-------|-------|-----|----------|
+| **Built-in** | 🔧 | Slate | `#64748b` | Read, Write, Edit, Bash, Glob, Grep, AskUserQuestion, TodoWrite |
+| **External (MCP)** | 🔌 | Amber | `#f59e0b` | Context7, Perplexity, Firecrawl (via Model Context Protocol) |
+
+### Built-in Tool Sub-categories (optional precision)
 
 | Sub-category | Combo | Tools |
 |--------------|-------|-------|
-| Read Operations | 🔧👀 | Read, Glob, Grep |
+| Read File | 🔧👀 | Read |
+| Search Content | 🔧🔍 | Grep |
+| Search Files | 🔧🗂️ | Glob |
 | Write Operations | 🔧✏️ | Write, Edit, NotebookEdit |
-| System Operations | 🔧💻 | Bash, BashOutput, KillShell |
+| Shell Operations | 🔧📟 | Bash, BashOutput, KillShell |
 | Web Operations | 🔧🌐 | WebFetch, WebSearch |
+| Ask User | 🔧❓ | AskUserQuestion |
+| Plan/Track | 🔧📋 | TodoWrite |
+
+### External Tool (MCP) Usage
+
+| Usage | Combo | Description |
+|-------|-------|-------------|
+| MCP call | 🐔🔌🌐 | Main Agent calls external API via MCP |
+| MCP call | 🐦🔌🌐 | Subagent calls external API via MCP |
 
 ---
 
@@ -155,16 +173,16 @@ Every element in a diagram answers: **WHO does WHAT?**
 │  🙋‍♀️📥    User sends input                                                   │
 │  🙆‍♀️✅    User validates (approves)                                          │
 │  🙆‍♀️❓    User questions                                                     │
-│  💁‍♀️📤    User receives output                                               │
+│  📤💁‍♀️    User receives output                                               │
 ├─────────────────────────────────────────────────────────────────────────────┤
 │  MAIN AGENT 🐔                                                              │
 │  ────────────────────────────────────────────────────────────────────────── │
 │  🐔💭   Main Agent thinks/reasons                                           │
 │  🐔🚦   Main Agent routes/decides                                           │
-│  🐔🪺   Main Agent spawns Subagent (Task tool)                              │
+│  🐔🪺   Main Agent spawns Subagent (via Task)                               │
 │  🐔🔀   Main Agent splits task                                              │
 │  🐔🌀   Main Agent merges results                                           │
-│  🐔📋   Main Agent plans (Pattern 6: Autonomous)                            │
+│  🐔📋   Main Agent plans (Pattern 7: 🐉 Autonomous)                         │
 │  🐔📤   Main Agent outputs result                                           │
 │  🐔⚡   Main Agent executes                                                 │
 │  🐔👀   Main Agent observes/reads                                           │
@@ -193,23 +211,34 @@ Every element in a diagram answers: **WHO does WHAT?**
 
 ```
 ┌─────────────────────────────────────────────────────────────────────────────┐
-│  MAIN AGENT 🐔 + TOOLS                                                      │
+│  MAIN AGENT 🐔 + BUILT-IN TOOLS 🔧                                          │
 │  ────────────────────────────────────────────────────────────────────────── │
-│  🐔🔧      Main Agent uses Native tool                                      │
-│  🐔🔧👀    Main Agent reads (Read, Glob, Grep)                              │
+│  🐔🔧      Main Agent uses built-in tool                                    │
+│  🐔🔧👀    Main Agent reads file (Read)                                     │
+│  🐔🔧🔍    Main Agent searches content (Grep)                               │
+│  🐔🔧🗂️    Main Agent searches files (Glob)                                 │
 │  🐔🔧✏️    Main Agent writes (Write, Edit)                                  │
-│  🐔🔧💻    Main Agent bash                                                  │
+│  🐔🔧📟    Main Agent shell (Bash)                                          │
 │  🐔🔧🌐    Main Agent web (WebFetch, WebSearch)                             │
-│  🐔🔌      Main Agent uses MCP tool                                         │
-│  🐔💁‍♀️     Main Agent user interaction                                      │
+│  🐔🔧❓    Main Agent asks user (AskUserQuestion)                           │
+│  🐔🔧📋    Main Agent plans/tracks (TodoWrite)                              │
 ├─────────────────────────────────────────────────────────────────────────────┤
-│  SUBAGENT 🐦 + TOOLS                                                        │
+│  MAIN AGENT 🐔 + EXTERNAL TOOLS 🔌 (MCP)                                    │
 │  ────────────────────────────────────────────────────────────────────────── │
-│  🐦🔧      Subagent uses Native tool                                        │
-│  🐦🔧👀    Subagent reads                                                   │
-│  🐦🔧✏️    Subagent writes                                                  │
-│  🐦🔧💻    Subagent bash                                                    │
-│  🐦🔌      Subagent uses MCP tool                                           │
+│  🐔🔌🌐    Main Agent calls external API via MCP                            │
+├─────────────────────────────────────────────────────────────────────────────┤
+│  SUBAGENT 🐦 + BUILT-IN TOOLS 🔧                                            │
+│  ────────────────────────────────────────────────────────────────────────── │
+│  🐦🔧      Subagent uses built-in tool                                      │
+│  🐦🔧👀    Subagent reads file (Read)                                       │
+│  🐦🔧🔍    Subagent searches content (Grep)                                 │
+│  🐦🔧🗂️    Subagent searches files (Glob)                                   │
+│  🐦🔧✏️    Subagent writes (Write, Edit)                                    │
+│  🐦🔧📟    Subagent shell (Bash)                                            │
+├─────────────────────────────────────────────────────────────────────────────┤
+│  SUBAGENT 🐦 + EXTERNAL TOOLS 🔌 (MCP)                                      │
+│  ────────────────────────────────────────────────────────────────────────── │
+│  🐦🔌🌐    Subagent calls external API via MCP                              │
 └─────────────────────────────────────────────────────────────────────────────┘
 ```
 
@@ -225,7 +254,6 @@ Every element in a diagram answers: **WHO does WHAT?**
 | **Slash Command** | 🦴 | Indigo | `#6366f1` | User entry point |
 | **Skill** | 📚 | Purple | `#8b5cf6` | Loaded knowledge |
 | **State/Data** | 💾 | Emerald | `#10b981` | Persisted data |
-| **Task tool** | 📤 | Pink | `#ec4899` | Delegation (spawns 🐦) |
 
 ### Status
 
@@ -238,31 +266,33 @@ Every element in a diagram answers: **WHO does WHAT?**
 | **Pending** | ⏳ | Slate | `#64748b` |
 | **Skip** | ⏭️ | Slate | `#64748b` |
 
-### Patterns (for titles only)
+### Agentic Patterns (7 patterns)
 
-**Anthropic Research Patterns:**
+| # | Pattern | Emoji | Color | Hex |
+|---|---------|-------|-------|-----|
+| 1 | Direct Execution | 🏎️ | Slate | `#64748b` |
+| 2 | Prompt Chaining | ⛓️ | Purple | `#8b5cf6` |
+| 3 | Routing | 🚦 | Amber | `#f59e0b` |
+| 4 | Parallelization | 🛤️ | Blue | `#3b82f6` |
+| 5 | Subagent Orchestration | 🦑 | Pink | `#ec4899` |
+| 6 | Evaluator-Optimizer | 🩻 | Teal | `#14b8a6` |
+| 7 | Autonomous Agents | 🐉 | Purple | `#8b5cf6` |
 
-| Pattern | Emoji |
-|---------|-------|
-| Prompt Chaining | ⛓️ |
-| Routing | 🚦 |
-| Parallelization | 🛤️ |
-| Orchestrator-Workers | 🎭 |
-| Evaluator-Optimizer | 🩻 |
-| Autonomous Agents | 🐉 |
+### Mechanisms (implementation, not patterns)
 
-**Claude Code Implementation Patterns:**
-
-| Pattern | Emoji | Color | Hex |
-|---------|-------|-------|-----|
-| Direct Execution | 🏎️ | Slate | `#64748b` |
-| Subagent Orchestration | 🎪 | Pink | `#ec4899` |
-| Parallel Tool Calling | 🚂 | Blue | `#3b82f6` |
-| Master-Clone | 🧬 | Amber | `#f59e0b` |
-| Wizard Workflow | 🧙 | Teal | `#14b8a6` |
-| Multi-Window Context | 🖥️ | Blue | `#3b82f6` |
-| Progressive Skills | 🎓 | Emerald | `#10b981` |
+| Mechanism | Emoji | Color | Hex |
+|-----------|-------|-------|-----|
+| Progressive Skills | 📚 | Purple | `#8b5cf6` |
 | Programmatic Orchestration | 🎛️ | Indigo | `#6366f1` |
+
+### Pattern Variants
+
+| Variant | Parent Pattern | Emoji |
+|---------|----------------|-------|
+| Wizard Workflow | ⛓️ Prompt Chaining | 🧙 |
+| Parallel Tool Calling | 🛤️ Parallelization | 🚂 |
+| Master-Clone | 🛤️ Parallelization | 🧬 |
+| Multi-Window Context | 🐉 Autonomous Agents | 🖥️ |
 
 ### Phases (generation order)
 
@@ -282,20 +312,22 @@ Every element in a diagram answers: **WHO does WHAT?**
 │                      EMOJI QUICK REFERENCE v2                               │
 ├─────────────────────────────────────────────────────────────────────────────┤
 │                                                                             │
-│  ACTEURS              ACTIONS              TOOLS                            │
-│  ────────             ───────              ─────                            │
-│  🙆‍♀️ User (neutral)   📥 Input             🔧 Native                        │
-│  🙋‍♀️ User (gives)     📤 Output            🔌 MCP                           │
-│  💁‍♀️ User (receives)  💭 Réflexion         💁‍♀️ User Interaction              │
-│  🐔 Main Agent        🚦 Routing                                            │
-│  🐦 Subagent          🪺 Spawn             NATIVE DETAIL                    │
-│                       ⚡ Exécution         ─────────────                    │
-│                       👀 Observation       🔧👀 Read ops                     │
-│                       ✏️ Écriture          🔧✏️ Write ops                    │
-│                       ✅ Validation        🔧💻 Bash ops                     │
-│                       ❓ Question          🔧🌐 Web ops                      │
-│                       🔀 Split             📋 Plan                          │
-│                       🌀 Merge             🔄 Adjust                         │
+│  ACTEURS              ACTIONS              TOOLS (by source)                │
+│  ────────             ───────              ─────────────────                │
+│  🙆‍♀️ User (neutral)   📥 Input             🔧 Built-in                      │
+│  🙋‍♀️ User (gives)     📤 Output            🔌 External (MCP)                │
+│  💁‍♀️ User (receives)  💭 Réflexion                                          │
+│  🐔 Main Agent        🚦 Routing           BUILT-IN DETAIL                  │
+│  🐦 Subagent          🪺 Spawn             ───────────────                  │
+│                       ⚡ Exécution         🔧👀 Read file                    │
+│                       👀 Observation       🔧🔍 Grep (content)               │
+│                       ✏️ Écriture          🔧🗂️ Glob (files)                 │
+│                       📋 Plan              🔧✏️ Write ops                    │
+│                       🔄 Adjust            🔧📟 Shell ops                    │
+│                       ✅ Validation        🔧🌐 Web ops                      │
+│                       ❓ Question          🔧❓ Ask user                     │
+│                       🔀 Split             🔧📋 Plan/Track                   │
+│                       🌀 Merge             🔌🌐 External API (MCP)           │
 │                       💤 Idle/Sleep                                         │
 ├─────────────────────────────────────────────────────────────────────────────┤
 │  TRIGGERS             STATUS               COMPOSANTS                       │
@@ -303,20 +335,19 @@ Every element in a diagram answers: **WHO does WHAT?**
 │  🪝 Hook              ✅ Success           🦴 Slash Command                 │
 │                       ❌ Error             📚 Skill                         │
 │                       ⚠️ Warning           💾 State                         │
-│                       🔄 Progress          📤 Task tool                     │
+│                       🔄 Progress                                           │
 │                       ⏳ Pending                                            │
 │                       ⏭️ Skip                                               │
 ├─────────────────────────────────────────────────────────────────────────────┤
-│  PATTERNS ANTHROPIC                PATTERNS CLAUDE CODE                     │
-│  ─────────────────                 ────────────────────                     │
-│  ⛓️ Prompt Chaining                🏎️ Direct Execution                      │
-│  🚦 Routing                        🎪 Subagent Orchestration                │
-│  🛤️ Parallelization                🚂 Parallel Tool Calling                 │
-│  🎭 Orchestrator-Workers           🧬 Master-Clone                          │
-│  🩻 Evaluator-Optimizer           🧙 Wizard Workflow                       │
-│  🐉 Autonomous Agents              🖥️ Multi-Window Context                  │
-│                                    🎓 Progressive Skills                    │
-│                                    🎛️ Programmatic Orchestration            │
+│  AGENTIC PATTERNS (7)              VARIANTS                 MECHANISMS     │
+│  ────────────────────              ────────                 ──────────     │
+│  🏎️ Direct Execution               🧙 Wizard Workflow       📚 Progressive │
+│  ⛓️ Prompt Chaining                🚂 Parallel Tool Call      Skills       │
+│  🚦 Routing                        🧬 Master-Clone          🎛️ Programmatic│
+│  🛤️ Parallelization                🖥️ Multi-Window             Orch.       │
+│  🦑 Subagent Orchestration                                                 │
+│  🩻 Evaluator-Optimizer                                                   │
+│  🐉 Autonomous Agents                                                      │
 └─────────────────────────────────────────────────────────────────────────────┘
 ```
 
@@ -329,16 +360,16 @@ Every element in a diagram answers: **WHO does WHAT?**
 │                         STANDARD COLOR PALETTE                              │
 ├─────────────────────────────────────────────────────────────────────────────┤
 │                                                                             │
-│  🟣 #6366f1 (Indigo)    → User 🙆‍♀️🙋‍♀️💁‍♀️, Slash Commands 🦴                   │
+│  🟣 #6366f1 (Indigo)    → User 🙆‍♀️🙋‍♀️💁‍♀️, Slash Commands 🦴, Prog. Orch. 🎛️   │
 │  🟣 #8b5cf6 (Purple)    → Main Agent 🐔, Skills 📚                          │
-│  🩷 #ec4899 (Pink)      → Subagent 🐦, Task tool 📤                         │
+│  🩷 #ec4899 (Pink)      → Subagent 🐦                                       │
 │  🟠 #f59e0b (Amber)     → MCP Tools 🔌, Master-Clone 🧬                     │
 │  🟢 #10b981 (Emerald)   → State 💾, Success ✅, Hook 🪝                     │
 │  🔵 #3b82f6 (Blue)      → Parallel 🚂, Multi-Window 🖥️, Progress 🔄        │
 │  🔴 #ef4444 (Red)       → Errors ❌                                        │
-│  🩶 #64748b (Slate)     → Native Tools 🔧, Neutral, Skip ⏭️                 │
+│  🩶 #64748b (Slate)     → Built-in Tools 🔧, Neutral, Skip ⏭️               │
 │  🩶 #94a3b8 (Slate-400) → Idle/Not chosen 💤                                │
-│  🩵 #14b8a6 (Teal)      → User Interaction 💁‍♀️, Wizard 🧙                   │
+│  🩵 #14b8a6 (Teal)      → Wizard 🧙                                         │
 │  🩵 #06b6d4 (Cyan)      → Data flow                                        │
 │                                                                             │
 └─────────────────────────────────────────────────────────────────────────────┘
@@ -359,11 +390,11 @@ flowchart TB
     classDef user fill:#6366f1,stroke:#4f46e5,stroke-width:2px,color:#ffffff
     classDef main fill:#8b5cf6,stroke:#7c3aed,stroke-width:2px,color:#ffffff
     classDef subagent fill:#ec4899,stroke:#db2777,stroke-width:2px,color:#ffffff
+    classDef skill fill:#8b5cf6,stroke:#7c3aed,stroke-width:2px,color:#ffffff
 
-    %% Tools
-    classDef nativeTool fill:#64748b,stroke:#475569,stroke-width:2px,color:#ffffff
+    %% Tools (by source)
+    classDef builtinTool fill:#64748b,stroke:#475569,stroke-width:2px,color:#ffffff
     classDef mcpTool fill:#f59e0b,stroke:#d97706,stroke-width:2px,color:#ffffff
-    classDef userInteraction fill:#14b8a6,stroke:#0d9488,stroke-width:2px,color:#ffffff
 
     %% Other
     classDef state fill:#10b981,stroke:#059669,stroke-width:2px,color:#ffffff
@@ -373,6 +404,7 @@ flowchart TB
     classDef neutral fill:#64748b,stroke:#475569,stroke-width:2px,color:#ffffff
     classDef data fill:#06b6d4,stroke:#0891b2,stroke-width:2px,color:#ffffff
     classDef idle fill:#94a3b8,stroke:#64748b,stroke-width:2px,color:#ffffff
+    classDef pattern fill:#8b5cf6,stroke:#7c3aed,stroke-width:2px,color:#ffffff
 ```
 
 ### Subgraph Styles
@@ -438,28 +470,38 @@ flowchart TB
 
 ---
 
-## Example: Prompt Chaining Flow
+## Example: Prompt Chaining Flow (Pattern 2: ⛓️)
 
 ```
-🙋‍♀️📥 ──► 🐔💭 ──► 🐔📤 ──► 🐔💭 ──► 🐔📤 ──► 🐔💭 ──► 🐔📤 ──► 💁‍♀️📤
+🙋‍♀️📥 ──► 🐔💭 ──► 🐔📤 ──► 🐔💭 ──► 🐔📤 ──► 🐔💭 ──► 🐔📤 ──► 📤💁‍♀️
 Input     Step 1    (internal)  Step 2    (internal)  Step 3     Output    User
 ```
 
-## Example: Orchestrator-Workers Flow
+## Example: Subagent Orchestration Flow (Pattern 5: 🦑)
 
 ```
 🙋‍♀️📥 ──► 🐔🔀 ──┬──► 🐦⚡ ──► 🐦📤 ──┐
-                ├──► 🐦⚡ ──► 🐦📤 ──┼──► 🐔🌀 ──► 🐔📤 ──► 💁‍♀️📤
+                ├──► 🐦⚡ ──► 🐦📤 ──┼──► 🐔🌀 ──► 🐔📤 ──► 📤💁‍♀️
                 └──► 🐦⚡ ──► 🐦📤 ──┘
 ```
 
-## Example: Autonomous Agent Flow (Pattern 6: 🐉)
+## Example: Autonomous Agent Flow (Pattern 7: 🐉)
 
 ```
 🙋‍♀️📥 ──► 🐔📋 ──► 🐔⚡ ──► 🐔👀 ──► 🐔💭 ──┬──► 🐔🔄 ──► 🐔📋 (loop)
 Goal       Plan      Act      Observe   Reflect │
-                                                └──► 🐔📤 ──► 💁‍♀️📤 (done)
+                                                └──► 🐔📤 ──► 📤💁‍♀️ (done)
 ```
+
+## Example: Human-in-the-Loop with Continue
+
+```
+🙋‍♀️📥 ──► 🐔📋 ──► 🐔📤 ──► 📤💁‍♀️ ──► 🙆‍♀️✅ ──► 🐔▶️ ──► 🐔⚡ ──► 🐔📤 ──► 📤💁‍♀️
+Request    Plan      Show      User      User      Agent     Execute   Output    Done
+                     plan      reviews   approves  continues
+```
+
+> **🐔▶️ (Continue)** is used when the agent resumes execution after a pause, checkpoint, or user approval.
 
 ---
 
@@ -487,20 +529,6 @@ Goal       Plan      Act      Observe   Reflect │
 
 ---
 
-## Migration Guide (Old → New)
-
-| Old | New | Element |
-|-----|-----|---------|
-| 👤 | 🙆‍♀️/🙋‍♀️/💁‍♀️ | User (3 states) |
-| 🧠 | 🐔 | Main Agent |
-| 🤖 | 🐦 | Subagent |
-| 🛠️ | 🔧 | Native Tool |
-| 🖐️ | 💁‍♀️ | User Interaction Tool |
-
-> **Note:** 🐉 is only used for Pattern 6 title "🐉 Autonomous Agents", not as an acteur in diagrams.
-
----
-
 ## CSS Variables (for web implementations)
 
 ```css
@@ -510,16 +538,16 @@ Goal       Plan      Act      Observe   Reflect │
   --color-main-agent: #8b5cf6;
   --color-subagent: #ec4899;
 
-  /* Tool Colors */
-  --color-native-tool: #64748b;
+  /* Tool Colors (by source) */
+  --color-builtin-tool: #64748b;
   --color-mcp-tool: #f59e0b;
-  --color-user-interaction: #14b8a6;
 
   /* Other */
   --color-state: #10b981;
   --color-wizard: #14b8a6;
   --color-parallel: #3b82f6;
   --color-data: #06b6d4;
+  --color-pattern: #8b5cf6;
 
   /* Status Colors */
   --color-success: #10b981;
@@ -533,9 +561,9 @@ Goal       Plan      Act      Observe   Reflect │
   --border-main-agent: #7c3aed;
   --border-subagent: #db2777;
   --border-state: #059669;
-  --border-native-tool: #475569;
+  --border-builtin-tool: #475569;
   --border-mcp-tool: #d97706;
-  --border-user-interaction: #0d9488;
+  --border-pattern: #7c3aed;
 
   /* Background Colors (lighter variants for subgraphs) */
   --bg-user: #e0e7ff;

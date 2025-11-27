@@ -4,7 +4,7 @@
 
 ━━━━━━━━━━━●━━━━━━━━━━━━━━━━━━━ `5/8`
 
-[← 04 Implementation](04-CLAUDE-CODE-PATTERNS.md) • [06 Selection Guide →](06-PATTERN-SELECTION-GUIDE.md)
+[← 03 Agentic Patterns](03-AGENTIC-PATTERNS.md) • [06 Selection Guide →](06-PATTERN-SELECTION-GUIDE.md)
 
 </div>
 
@@ -18,11 +18,11 @@
 
 | # | Use Case | Patterns |
 |---|----------|----------|
-| 1 | [Multi-Agent Research](#use-case-1-multi-agent-research-system) | 🎪 + 🚂 |
-| 2 | [Code Review Pipeline](#use-case-2-production-code-review) | 🚂 + 🎪 |
+| 1 | [Multi-Agent Research](#use-case-1-multi-agent-research-system) | 🦑 + 🚂 |
+| 2 | [Code Review Pipeline](#use-case-2-production-code-review) | 🚂 + 🦑 |
 | 3 | [Multi-Locale Generation](#use-case-3-multi-locale-content-generation) | 🧬 + 🧙 |
-| 4 | [Personal Assistant](#use-case-4-intelligent-personal-assistant) | 🎓 |
-| 5 | [Customer Support](#use-case-5-customer-support-automation) | 🚦 + 🎪 |
+| 4 | [Personal Assistant](#use-case-4-intelligent-personal-assistant) | 📚 |
+| 5 | [Customer Support](#use-case-5-customer-support-automation) | 🚦 + 🦑 |
 | 6 | [Data Migration](#use-case-6-data-pipeline-migration) | 🧙 + 🖥️ |
 
 ---
@@ -31,11 +31,11 @@
 
 | Use Case | Pattern | Components |
 |----------|---------|------------|
-| Multi-Agent Research | 🎪 Subagent Orchestration | Lead Agent → Parallel Subagents → Synthesis |
-| Code Review Pipeline | 🚂 Parallel + 🎪 Subagent | Security, Performance, Style reviewers |
+| Multi-Agent Research | 🦑 Subagent Orchestration | Lead Agent → Parallel Subagents → Synthesis |
+| Code Review Pipeline | 🚂 Parallel + 🦑 Subagent | Security, Performance, Style reviewers |
 | Multi-Locale Generation | 🧬 Master-Clone + 🧙 Wizard | Primary → Variants in isolation |
-| Personal Assistant | 🎓 Progressive Skills | Calendar, Email, Tasks routing |
-| Customer Support | 🚦 Routing + 🎪 Subagent | Triage → Specialized handlers |
+| Personal Assistant | 📚 Progressive Skills | Calendar, Email, Tasks routing |
+| Customer Support | 🚦 Routing + 🦑 Subagent | Triage → Specialized handlers |
 | Data Migration | 🧙 Wizard + 🖥️ Multi-Window | Phased with checkpoints |
 
 ---
@@ -62,7 +62,7 @@ flowchart TB
 
     USER["🙋‍♀️ Research Query"] --> LEAD["🐔 Lead Agent"]:::main
 
-    LEAD -->|"📤 Task tool"| PLAN["Plan research strategy"]
+    LEAD -->|"🪺 Task"| PLAN["Plan research strategy"]
     PLAN --> SPAWN["Spawn specialized researchers"]
 
     subgraph PARALLEL["🚂 Parallel Execution"]
@@ -86,7 +86,7 @@ flowchart TB
 
 | Pattern | Role |
 |---------|------|
-| 🎪 Subagent Orchestration | Lead Agent spawns specialized researchers |
+| 🦑 Subagent Orchestration | Lead Agent spawns specialized researchers |
 | 🚂 Parallel Tool Calling | Multiple researchers work simultaneously |
 | 🧬 Master-Clone | Each researcher has isolated context |
 
@@ -143,7 +143,7 @@ flowchart TB
 
     SIZE -->|"Small"| DIRECT["🏎️ Direct Review"]
     SIZE -->|"Medium"| PARALLEL["🚂 Parallel Read"]:::parallel
-    SIZE -->|"Large"| SUBAGENT["🎪 Specialized Reviews"]
+    SIZE -->|"Large"| SUBAGENT["🦑 Specialized Reviews"]
 
     subgraph SPECIALISTS["Specialist Subagents"]
         SEC["🐦 Security"]:::subagent
@@ -166,7 +166,7 @@ flowchart TB
 |---------|---------|-----------|
 | 1-3 files | 🏎️ Direct Execution | No overhead needed |
 | 4-10 files | 🚂 Parallel Tool Calling | Read all files concurrently |
-| 10+ files | 🎪 Subagent Orchestration | Specialized reviewers |
+| 10+ files | 🦑 Subagent Orchestration | Specialized reviewers |
 
 ### Subagent Definitions
 
@@ -245,7 +245,7 @@ flowchart TB
 | Stage | Pattern | Purpose |
 |-------|---------|---------|
 | Entry | 🧙 Wizard Workflows | Confirm scope before generation |
-| Primary | 🎪 Subagent Orchestration | Generate reference locale |
+| Primary | 🦑 Subagent Orchestration | Generate reference locale |
 | Variants | 🧬 Master-Clone | Parallel, isolated generation |
 | Throughout | 🖥️ Multi-Window Context | Resume on interruption |
 
@@ -276,7 +276,7 @@ Handle diverse user requests efficiently:
 %%{init: {'theme': 'base', 'themeVariables': {'lineColor': '#64748b'}}}%%
 flowchart TB
     classDef main fill:#8b5cf6,stroke:#7c3aed,stroke-width:2px,color:#ffffff
-    classDef skill fill:#10b981,stroke:#059669,stroke-width:2px,color:#ffffff
+    classDef skill fill:#8b5cf6,stroke:#7c3aed,stroke-width:2px,color:#ffffff
     classDef tool fill:#f59e0b,stroke:#d97706,stroke-width:2px,color:#ffffff
 
     USER["🙋‍♀️ User Request"] --> ROUTER["🐔 Main Agent"]:::main
@@ -290,7 +290,7 @@ flowchart TB
 
     CAL --> T1["🔌 Google Calendar API"]:::tool
     EMAIL --> T2["🔌 Gmail API"]:::tool
-    TASK --> T3["🔌 TodoWrite"]:::tool
+    TASK --> T3["💁‍♀️ TodoWrite"]:::tool
     RESEARCH --> T4["🔌 Perplexity"]:::tool
 ```
 
@@ -299,7 +299,7 @@ flowchart TB
 | Pattern | Implementation |
 |---------|----------------|
 | 🚦 Routing | Intent classification to skill selection |
-| 🎓 Progressive Skills | Load capability based on request type |
+| 📚 Progressive Skills | Load capability based on request type |
 
 ### Skill Loading
 
@@ -362,7 +362,7 @@ flowchart TB
 | Pattern | Role |
 |---------|------|
 | 🚦 Routing | Classify ticket type |
-| 🎪 Subagent Orchestration | Specialized handlers |
+| 🦑 Subagent Orchestration | Specialized handlers |
 | 🧙 Wizard Workflows | Human escalation path |
 
 ### Escalation Criteria
@@ -445,12 +445,12 @@ Quick decision matrix:
 | If your use case involves... | Use Pattern |
 |------------------------------|-------------|
 | Multiple independent searches | 🚂 Parallel Tool Calling |
-| Specialized domain knowledge | 🎪 Subagent Orchestration |
+| Specialized domain knowledge | 🦑 Subagent Orchestration |
 | Same task on different data | 🧬 Master-Clone |
 | Critical/destructive operations | 🧙 Wizard Workflows |
 | Long-running workflows (>10 min) | 🖥️ Multi-Window Context |
 | External system orchestration | 🎛️ Programmatic Orchestration |
-| Intent-based capability loading | 🎓 Progressive Skills |
+| Intent-based capability loading | 📚 Progressive Skills |
 
 ---
 
@@ -462,8 +462,8 @@ Quick decision matrix:
 
 | Category | Examples | Pattern |
 |----------|----------|---------|
-| **Core Development** | Code Writer, Refactorer, Debugger | 🏎️ Direct / 🎪 Subagent |
-| **Quality Assurance** | Test Writer, Security Reviewer, Linter | 🎪 Subagent Orchestration |
+| **Core Development** | Code Writer, Refactorer, Debugger | 🏎️ Direct / 🦑 Subagent |
+| **Quality Assurance** | Test Writer, Security Reviewer, Linter | 🦑 Subagent Orchestration |
 | **Data & AI** | Data Analyst, ML Pipeline, Embeddings | 🚂 Parallel + 🧬 Clone |
 | **DevOps** | CI/CD Manager, Docker Builder, K8s | 🎛️ Programmatic |
 | **Business** | Doc Writer, Translator, Report Generator | 🧬 Master-Clone |
@@ -492,7 +492,7 @@ tools: Read, Write, Grep, Glob, Bash
 
 **━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━**
 
-[← 04 Implementation](04-CLAUDE-CODE-PATTERNS.md) • [🏠 Home](README.md) • [06 Selection Guide →](06-PATTERN-SELECTION-GUIDE.md)
+[← 03 Agentic Patterns](03-AGENTIC-PATTERNS.md) • [🏠 Home](README.md) • [06 Selection Guide →](06-PATTERN-SELECTION-GUIDE.md)
 
 </div>
 

@@ -38,10 +38,10 @@
 │   ┌──────────────┐  ┌──────────────┐  ┌──────────────┐  ┌──────────────┐   │
 │   │ 🐦 SUBAGENT  │  │🦴 SLASH CMD  │  │  📚 SKILL    │  │   🪝 HOOK    │   │
 │   ├──────────────┤  ├──────────────┤  ├──────────────┤  ├──────────────┤   │
-│   │ 📤 Task tool │  │ /command     │  │ Capability   │  │ Event-driven │   │
-│   │ spawns       │  │ invokes      │  │ loaded       │  │ shell cmd    │   │
+│   │ Task tool    │  │ /command     │  │ Capability   │  │ Event-driven │   │
+│   │ 🪺 spawns    │  │ invokes      │  │ loaded       │  │ shell cmd    │   │
 │   │              │  │              │  │              │  │              │   │
-│   │ agents/*.md  │  │ commands/*.md│  │ skills/*.md  │  │ settings.json│   │
+│   │ agents/*.md  │  │ commands/*.md│  │ skills/*/    │  │ settings.json│   │
 │   └──────────────┘  └──────────────┘  └──────────────┘  └──────────────┘   │
 │                                                                             │
 │         ↓                  ↓                 ↓                 ↓            │
@@ -57,13 +57,13 @@
 
 ### Definition
 
-A **Subagent** is an autonomous agent spawned by the 🐔 Main Agent via the 📤 `Task` tool to handle specific, isolated tasks.
+A **Subagent** is an autonomous agent spawned by the 🐔 Main Agent via the `Task` tool (🪺 spawn action) to handle specific, isolated tasks.
 
 ### Key Characteristics
 
 | Property | Value |
 |----------|-------|
-| **Invocation** | 📤 `Task` tool with `subagent_type` parameter |
+| **Invocation** | `Task` tool with `subagent_type` parameter (🪺 spawn) |
 | **Location** | `.claude/agents/*.md` |
 | **Autonomy** | Full - executes independently |
 | **Spawning** | ❌ Cannot spawn other subagents |
@@ -78,14 +78,27 @@ A **Subagent** is an autonomous agent spawned by the 🐔 Main Agent via the �
 ---
 name: code-reviewer
 description: Reviews code for quality, security, and best practices
+tools: Read, Write, Grep, Glob
+model: sonnet
 permissionMode: acceptEdits
-allowed-tools: Read, Write, Grep, Glob
+skills: test-driven-development, code-review
 ---
 
 You are a code review specialist. Your task is to...
 ```
 
-> **Note**: `allowed-tools` is a comma-separated string, not a YAML list.
+> **Note**: `tools` and `skills` are comma-separated strings, not YAML lists.
+
+### Frontmatter Reference
+
+| Field | Required | Description |
+|-------|----------|-------------|
+| `name` | Yes | Unique identifier (lowercase, hyphens) |
+| `description` | Yes | Natural language description for discovery |
+| `tools` | No | Comma-separated tool list. Omit to inherit all tools |
+| `model` | No | `sonnet`, `opus`, `haiku`, or `inherit` (default: configured subagent model) |
+| `permissionMode` | No | Controls permission handling (see below) |
+| `skills` | No | Comma-separated skill names to auto-load |
 
 ### Permission Modes
 
@@ -96,13 +109,15 @@ Control how 🐦 Subagents request permissions for tool usage:
 | `default` | Asks permission for each tool | Read-only, validation |
 | `acceptEdits` | Auto-approves Write/Edit | Generation after 🧙 user confirmation |
 | `bypassPermissions` | All tools auto-approved | Trusted autonomous workflows |
+| `plan` | Read-only planning mode | Research without modifications |
+| `ignore` | Skip permission prompts entirely | Batch processing |
 
 > **Best Practice**: Use `acceptEdits` after 🧙 Wizard confirmation to enable autonomous generation without repeated permission prompts.
 
 ### Usage Example
 
 ```python
-# 🐔 Main Agent spawns 🐦 subagent via 📤 Task tool
+# 🐔 Main Agent 🪺 spawns 🐦 subagent via Task tool
 Task(
     subagent_type="code-reviewer",
     prompt="Review the authentication module for security issues"
@@ -120,12 +135,46 @@ sequenceDiagram
     participant T as 🔧 Tools
 
     U->>MA: "Review my code"
-    MA->>SA: 📤 Task(subagent_type="code-reviewer")
+    MA->>SA: 🪺 Task(subagent_type="code-reviewer")
     SA->>T: Read, Grep, Glob
     T-->>SA: Results
     SA-->>MA: 🐦📤 Review Report
     MA-->>U: 💁‍♀️📤 "Here's the review..."
 ```
+
+### Built-in Subagents
+
+Claude Code includes built-in subagents available out of the box:
+
+| Subagent | Model | Tools | Purpose |
+|----------|-------|-------|---------|
+| **General-purpose** | Sonnet | All tools | Complex multi-step tasks requiring exploration and modification |
+| **Plan** | Sonnet | Read, Glob, Grep, Bash | Research during plan mode (read-only exploration) |
+| **Explore** | Haiku | Glob, Grep, Read, Bash (read-only) | Fast, lightweight codebase searching |
+
+**Explore Thoroughness Levels:**
+- `quick` - Basic searches, fastest results
+- `medium` - Moderate exploration, balanced speed/depth
+- `very thorough` - Comprehensive analysis across multiple locations
+
+### Resumable Subagents
+
+Subagents can be resumed to continue previous conversations:
+
+```python
+# Initial invocation returns agentId
+Task(subagent_type="code-analyzer", prompt="Review auth module")
+# Returns: agentId = "abc123"
+
+# Resume with previous context
+Task(
+    subagent_type="code-analyzer",
+    prompt="Now analyze authorization logic",
+    resume="abc123"  # Continue from previous execution
+)
+```
+
+> **Use Cases**: Long-running research, iterative refinement, multi-step workflows requiring context persistence.
 
 ---
 
@@ -162,7 +211,18 @@ Generate localization files for: $ARGUMENTS
 ```
 
 > **Note**: The command name comes from the filename (`generate.md` → `/generate`).
-> Supported frontmatter: `description`, `argument-hint`, `allowed-tools`, `model`.
+
+### Frontmatter Reference
+
+| Field | Required | Description |
+|-------|----------|-------------|
+| `description` | Recommended | Brief description (shown in `/help` and used by SlashCommand tool) |
+| `argument-hint` | No | Expected arguments hint (e.g., `[locale]`, `[pr-number] [priority]`) |
+| `allowed-tools` | No | Tools the command can use without asking permission |
+| `model` | No | Specific model to use (e.g., `claude-3-5-haiku-20241022`) |
+| `disable-model-invocation` | No | Set `true` to prevent `SlashCommand` tool from calling this command programmatically |
+
+> **SlashCommand Tool**: Claude can invoke slash commands programmatically via the `SlashCommand` tool. Commands without `description` or with `disable-model-invocation: true` are excluded.
 
 ### Usage Examples
 
@@ -253,7 +313,7 @@ description: Use when implementing features - write tests first, then code
 flowchart TB
     classDef user fill:#6366f1,stroke:#4f46e5,stroke-width:2px,color:#ffffff
     classDef main fill:#8b5cf6,stroke:#7c3aed,stroke-width:2px,color:#ffffff
-    classDef skill fill:#10b981,stroke:#059669,stroke-width:2px,color:#ffffff
+    classDef skill fill:#8b5cf6,stroke:#7c3aed,stroke-width:2px,color:#ffffff
     classDef decision fill:#f59e0b,stroke:#d97706,stroke-width:2px,color:#ffffff
 
     REQ["🙋‍♀️📥 User Request"]:::user --> CHECK{"📚 Skill Applicable?"}:::decision
@@ -279,7 +339,7 @@ A **Hook** is a shell command that executes automatically in response to specifi
 |----------|-------|
 | **Invocation** | Automatic on event trigger |
 | **Location** | `.claude/settings.json` |
-| **Types** | Pre/Post tool execution, prompts |
+| **Types** | `command` (shell) or `prompt` (LLM-based) |
 | **Execution** | Shell command |
 
 ### Configuration
@@ -367,8 +427,8 @@ flowchart TB
     classDef user fill:#6366f1,stroke:#4f46e5,stroke-width:2px,color:#ffffff
     classDef main fill:#8b5cf6,stroke:#7c3aed,stroke-width:2px,color:#ffffff
     classDef subagent fill:#ec4899,stroke:#db2777,stroke-width:2px,color:#ffffff
-    classDef skill fill:#10b981,stroke:#059669,stroke-width:2px,color:#ffffff
-    classDef nativeTool fill:#64748b,stroke:#475569,stroke-width:2px,color:#ffffff
+    classDef skill fill:#8b5cf6,stroke:#7c3aed,stroke-width:2px,color:#ffffff
+    classDef builtinTool fill:#64748b,stroke:#475569,stroke-width:2px,color:#ffffff
     classDef mcpTool fill:#f59e0b,stroke:#d97706,stroke-width:2px,color:#ffffff
 
     subgraph UserInput["🙋‍♀️ USER INPUT"]
@@ -388,10 +448,10 @@ flowchart TB
     end
 
     subgraph Tools["🔧 TOOLS"]
-        TASK["📤 Task Tool"]:::subagent
-        READ["🔧 Read"]:::nativeTool
-        WRITE["🔧 Write"]:::nativeTool
-        BASH["🔧 Bash"]:::nativeTool
+        TASK["🪺 Task (spawn)"]:::subagent
+        READ["🔧 Read"]:::builtinTool
+        WRITE["🔧 Write"]:::builtinTool
+        BASH["🔧 Bash"]:::builtinTool
     end
 
     SLASH --> CMD
@@ -413,12 +473,12 @@ flowchart TB
 
 | Aspect | 🐦 Subagent | 🦴 Slash Command | 📚 Skill | 🪝 Hook |
 |--------|----------|---------------|-------|------|
-| **Invoked by** | 📤 Task tool | 🙋‍♀️ User (`/`) | Context/Skill tool | Events |
+| **Invoked by** | Task tool (🪺) | 🙋‍♀️ User (`/`) | Context/Skill tool | Events |
 | **Autonomy** | High | Low | Medium | Automatic |
 | **Context** | Isolated | Main conversation | Main conversation | System |
 | **Can spawn subagents** | ❌ No | Via 🐔 main agent | Via 🐔 main agent | ❌ No |
 | **Typical use** | Complex tasks | Workflows | Methodologies | Automation |
-| **File location** | `agents/*.md` | `commands/*.md` | `skills/*.md` | `settings.json` |
+| **File location** | `agents/*.md` | `commands/*.md` | `skills/*/SKILL.md` | `settings.json` |
 
 ---
 
@@ -433,16 +493,16 @@ flowchart TB
 | 📚 Skill | Capability, ability |
 | 🪝 Hook | Trigger, event handler |
 | 🐔 Main Agent | Parent agent, orchestrator |
-| 📤 Task tool | Spawn, delegate |
+| Task (🪺 spawn) | Task tool, delegate |
 | 🙋‍♀️ User (input) | 👤 User |
 | 💁‍♀️ User (output) | 👤 User |
-| 🔧 Native Tool | 🛠️ Tool |
+| 🔧 Built-in | Native Tool, 🛠️ Tool |
 
 ### In Documentation
 
 ```markdown
 # Good
-The 🐔 Main Agent spawns a 🐦 Subagent via the 📤 Task tool.
+The 🐔 Main Agent 🪺 spawns a 🐦 Subagent via the Task tool.
 🙋‍♀️ Users invoke /generate to trigger the workflow.
 
 # Avoid
@@ -454,9 +514,9 @@ Users run the generate command.
 
 ## Additional Terms
 
-### 📤 Task Tool
+### Task Tool (🪺 Spawn)
 
-The `Task` tool is the mechanism for spawning 🐦 Subagents:
+The `Task` tool is the mechanism for 🪺 spawning 🐦 Subagents:
 
 ```python
 Task(

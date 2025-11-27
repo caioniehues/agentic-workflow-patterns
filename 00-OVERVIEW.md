@@ -33,8 +33,7 @@
 |----------|---------|
 | [01-TERMINOLOGY](01-OFFICIAL-TERMINOLOGY.md) | Claude Code components (Subagent, Command, Skill, Hook) |
 | [02-ARCHITECTURE](02-LAYER-ARCHITECTURE.md) | 5-Layer system architecture |
-| [03-PATTERNS-ANTHROPIC](03-ANTHROPIC-RESEARCH-PATTERNS.md) | 6 theoretical patterns from Anthropic |
-| [04-PATTERNS-CLAUDE-CODE](04-CLAUDE-CODE-PATTERNS.md) | 7 implementation patterns for Claude Code |
+| [03-AGENTIC-PATTERNS](03-AGENTIC-PATTERNS.md) | 7 unified patterns + 2 mechanisms |
 | [05-USE-CASES](05-USE-CASES.md) | **Real-world validated use cases** |
 | [06-PATTERN-SELECTION](06-PATTERN-SELECTION-GUIDE.md) | Decision tree for choosing patterns |
 | [07-MAPPING-GLOSSARY](07-MAPPING-GLOSSARY.md) | Cross-reference and definitions |
@@ -52,24 +51,24 @@
 │  ACTEURS                             CLAUDE CODE PATTERNS                   │
 │  ───────                             ────────────────────                   │
 │  🙆‍♀️ User (neutral)                  🏎️ Direct Execution                    │
-│  🙋‍♀️ User (input)                    🎪 Subagent Orchestration              │
+│  🙋‍♀️ User (input)                    🦑 Subagent Orchestration              │
 │  💁‍♀️ User (output)                   🚂 Parallel Tool Calling               │
 │  🐔 Main Agent                       🧬 Master-Clone                        │
 │  🐦 Subagent                         🧙 Wizard Workflow                     │
 │                                      🖥️ Multi-Window Context                │
-│  COMPONENTS                          🎓 Progressive Skills                  │
-│  ──────────                          🎛️ Programmatic Orchestration          │
-│  🦴 Slash Command                                                           │
-│  📚 Skill                            ANTHROPIC RESEARCH PATTERNS            │
-│  📤 Task tool                        ───────────────────────                │
-│  🪝 Hook                             ⛓️ Prompt Chaining                     │
-│  💾 State                            🚦 Routing                             │
-│  ❓ AskUserQuestion                  🛤️ Parallelization                     │
-│                                      🎭 Orchestrator-Workers                │
-│  TOOLS                               🩻 Evaluator-Optimizer                 │
-│  ─────                               🐉 Autonomous Agents                   │
-│  🔧 Native Tool                                                             │
-│  🔌 MCP Tool                         STATUS                                 │
+│  COMPONENTS                          MECHANISMS                             │
+│  ──────────                          ──────────                             │
+│  🦴 Slash Command                    📚 Progressive Skills                  │
+│  📚 Skill                            🎛️ Programmatic Orchestration          │
+│  🪝 Hook                                                                    │
+│  💾 State                            PATTERN VARIANTS                       │
+│  ❓ AskUserQuestion                  ────────────────                       │
+│                                      🧙 Wizard Workflow                     │
+│  TOOLS                               🚂 Parallel Tool Calling               │
+│  ─────                               🧬 Master-Clone                        │
+│  🔧 Built-in                         🖥️ Multi-Window Context                │
+│  🔌 External (MCP)                                                          │
+│                                      STATUS                                 │
 │  💁‍♀️ User Interaction                ──────                                 │
 │                                      ✅ Success    ❌ Error                 │
 │  PHASES                              ⚠️ Warning    🔄 Progress              │
@@ -84,35 +83,29 @@
 
 ---
 
-## Two Pattern Classifications
+## Agentic Patterns Overview
 
 ```
 ┌─────────────────────────────────────────────────────────────────────────────┐
-│                     AGENTIC PATTERNS ECOSYSTEM                              │
+│                         UNIFIED AGENTIC PATTERNS                            │
 ├─────────────────────────────────────────────────────────────────────────────┤
 │                                                                             │
-│  ┌─────────────────────────────┐    ┌─────────────────────────────┐        │
-│  │  ANTHROPIC RESEARCH (6)     │    │  CLAUDE CODE IMPL (7+1)     │        │
-│  │  ─────────────────────────  │    │  ─────────────────────────  │        │
-│  │  • ⛓️ Prompt Chaining       │    │  🏎️ Direct Execution (base) │        │
-│  │  • 🚦 Routing               │    │  • 🎪 Subagent Orchestration│        │
-│  │  • 🛤️ Parallelization       │    │  • 🎓 Progressive Skills    │        │
-│  │  • 🎭 Orchestrator-Workers  │    │  • 🚂 Parallel Tool Calling │        │
-│  │  • 🩻 Evaluator-Optimizer   │    │  • 🧬 Master-Clone          │        │
-│  │  • 🐉 Autonomous Agents     │    │  • 🖥️ Multi-Window Context  │        │
-│  │                             │    │  • 🎛️ Programmatic Orch.    │        │
-│  │  Source: "Building          │    │  • 🧙 Wizard Workflows      │        │
-│  │  Effective Agents" paper    │    │  Source: Claude Code CLI    │        │
-│  └─────────────────────────────┘    └─────────────────────────────┘        │
+│  PATTERNS (7)                    MECHANISMS (2)                             │
+│  ─────────────                   ──────────────                             │
+│  1. 🏎️ Direct Execution         📚 Progressive Skills                      │
+│  2. ⛓️ Prompt Chaining          🎛️ Programmatic Orchestration              │
+│  3. 🚦 Routing                                                              │
+│  4. 🛤️ Parallelization          VARIANTS (4)                               │
+│  5. 🦑 Subagent Orchestration   ─────────────                               │
+│  6. 🩻 Evaluator-Optimizer      🧙 Wizard Workflow (→ ⛓️)                   │
+│  7. 🐉 Autonomous Agents        🚂 Parallel Tool Calling (→ 🛤️)            │
+│                                  🧬 Master-Clone (→ 🛤️)                     │
+│                                  🖥️ Multi-Window Context (→ 🐉)             │
 │                                                                             │
-│                         ↓ MAPS TO ↓                                         │
-│                                                                             │
-│  ┌─────────────────────────────────────────────────────────────────┐       │
-│  │                    CLAUDE CODE COMPONENTS                        │       │
-│  │  ─────────────────────────────────────────────────────────────  │       │
-│  │   🐦 Subagent  │  🦴 Slash Command  │  📚 Skill  │  🪝 Hook     │       │
-│  └─────────────────────────────────────────────────────────────────┘       │
-│                                                                             │
+├─────────────────────────────────────────────────────────────────────────────┤
+│                         COMPONENTS (4)                                      │
+│  ─────────────────────────────────────────────────────────────────────────  │
+│   🐦 Subagent  │  🦴 Slash Command  │  📚 Skill  │  🪝 Hook                 │
 └─────────────────────────────────────────────────────────────────────────────┘
 ```
 
@@ -126,7 +119,7 @@
 |-----------|-------|------------|---------------|
 | **Subagent** | 🐦 | Specialized agent spawned via `Task` tool | `.claude/agents/*.md` |
 | **Slash Command** | 🦴 | User-invokable command starting with `/` | `.claude/commands/*.md` |
-| **Skill** | 📚 | Reusable capability the agent possesses | `.claude/skills/*.md` |
+| **Skill** | 📚 | Reusable capability the agent possesses | `.claude/skills/*/SKILL.md` |
 | **Hook** | 🪝 | Shell command triggered by events | `.claude/settings.json` |
 
 ### Layers (How they interact)
@@ -137,7 +130,7 @@ flowchart TB
     classDef user fill:#6366f1,stroke:#4f46e5,stroke-width:2px,color:#ffffff
     classDef main fill:#8b5cf6,stroke:#7c3aed,stroke-width:2px,color:#ffffff
     classDef subagent fill:#ec4899,stroke:#db2777,stroke-width:2px,color:#ffffff
-    classDef nativeTool fill:#64748b,stroke:#475569,stroke-width:2px,color:#ffffff
+    classDef builtinTool fill:#64748b,stroke:#475569,stroke-width:2px,color:#ffffff
     classDef mcpTool fill:#f59e0b,stroke:#d97706,stroke-width:2px,color:#ffffff
     classDef state fill:#10b981,stroke:#059669,stroke-width:2px,color:#ffffff
 
@@ -201,7 +194,7 @@ flowchart TB
 2. Use [06-PATTERN-SELECTION-GUIDE](06-PATTERN-SELECTION-GUIDE.md) for decision trees
 
 ### If you're implementing:
-1. Check [04-CLAUDE-CODE-PATTERNS](04-CLAUDE-CODE-PATTERNS.md) for implementation details
+1. Check [03-AGENTIC-PATTERNS](03-AGENTIC-PATTERNS.md) for implementation details
 2. Use [07-MAPPING-GLOSSARY](07-MAPPING-GLOSSARY.md) for term lookups
 
 ---
@@ -240,22 +233,22 @@ mindmap
       🔀 Delegation Layer
       ⚡ Execution Layer
       💾 State Layer
-    Research Patterns
+    Patterns 7
+      🏎️ Direct Execution
       ⛓️ Prompt Chaining
       🚦 Routing
       🛤️ Parallelization
-      🎭 Orchestrator-Workers
+      🦑 Subagent Orchestration
       🩻 Evaluator-Optimizer
       🐉 Autonomous Agents
-    Implementation Patterns
-      🏎️ Direct Execution
-      🎪 Subagent Orchestration
-      🎓 Progressive Skills
+    Mechanisms 2
+      📚 Progressive Skills
+      🎛️ Programmatic Orchestration
+    Variants 4
+      🧙 Wizard Workflow
       🚂 Parallel Tool Calling
       🧬 Master-Clone
       🖥️ Multi-Window Context
-      🎛️ Programmatic Orchestration
-      🧙 Wizard Workflows
 ```
 
 ---
@@ -266,8 +259,8 @@ These patterns originate from Claude/Anthropic but many apply across AI framewor
 
 | Pattern | Claude | GPT Agents | Gemini ADK | LangGraph |
 |:--------|:------:|:----------:|:----------:|:---------:|
-| 🎪 Subagent Orchestration | ✅ | ✅ Handoffs | ✅ Multi-agent | ✅ Subgraphs |
-| 🎓 Progressive Skills | ✅ | ❌ | ❌ | ❌ |
+| 🦑 Subagent Orchestration | ✅ | ✅ Handoffs | ✅ Multi-agent | ✅ Subgraphs |
+| 📚 Progressive Skills | ✅ | ❌ | ❌ | ❌ |
 | 🚂 Parallel Tool Calling | ✅ | ✅ | ✅ ParallelAgent | ✅ Fan-out |
 | 🧬 Master-Clone | ✅ | ✅ Dynamic | ✅ Custom | ✅ Send API |
 | 🖥️ Multi-Window Context | ✅ | ⚠️ Sessions | ⚠️ ctx.state | ✅ Checkpointing |
@@ -276,7 +269,7 @@ These patterns originate from Claude/Anthropic but many apply across AI framewor
 
 **Legend:** ✅ Native | ⚠️ Partial | ❌ Not supported
 
-> **Note**: 🎓 Progressive Skills uses Claude Code's unique `.md`-based skill system. Other frameworks have "tools" but not this pattern.
+> **Note**: 📚 Progressive Skills uses Claude Code's unique `.md`-based skill system. Other frameworks have "tools" but not this pattern.
 
 ---
 

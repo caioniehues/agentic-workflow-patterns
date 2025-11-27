@@ -15,8 +15,7 @@
 </p>
 
 <p align="center">
-  <img src="https://img.shields.io/badge/Research_Patterns-6-8b5cf6?style=flat-square" alt="6 Research Patterns"/>
-  <img src="https://img.shields.io/badge/Implementation_Patterns-7-6366f1?style=flat-square" alt="7 Implementation Patterns"/>
+  <img src="https://img.shields.io/badge/Agentic_Patterns-7-8b5cf6?style=flat-square" alt="7 Agentic Patterns"/>
   <img src="https://img.shields.io/badge/Components-4-ec4899?style=flat-square" alt="4 Components"/>
   <img src="https://img.shields.io/badge/Layers-5-f59e0b?style=flat-square" alt="5 Layers"/>
 </p>
@@ -33,21 +32,22 @@ mindmap
       🦴 Slash Command
       📚 Skill
       🪝 Hook
-    Anthropic Research 6
+    Patterns 7
+      🏎️ Direct Execution
       ⛓️ Prompt Chaining
       🚦 Routing
       🛤️ Parallelization
-      🎭 Orchestrator-Workers
+      🦑 Subagent Orchestration
       🩻 Evaluator-Optimizer
       🐉 Autonomous Agents
-    Claude Code Impl 7
-      🎪 Subagent Orchestration
-      🎓 Progressive Skills
+    Mechanisms 2
+      📚 Progressive Skills
+      🎛️ Programmatic Orchestration
+    Variants 4
+      🧙 Wizard Workflow
       🚂 Parallel Tool Calling
       🧬 Master-Clone
       🖥️ Multi-Window Context
-      🎛️ Programmatic Orchestration
-      🧙 Wizard Workflows
 ```
 
 ---
@@ -60,38 +60,37 @@ mindmap
 | **Understand architecture** | [02-LAYER-ARCHITECTURE.md](02-LAYER-ARCHITECTURE.md) |
 | **See real examples** | [05-USE-CASES.md](05-USE-CASES.md) |
 | **Choose a pattern** | [06-PATTERN-SELECTION-GUIDE.md](06-PATTERN-SELECTION-GUIDE.md) |
-| **Implement a pattern** | [04-CLAUDE-CODE-PATTERNS.md](04-CLAUDE-CODE-PATTERNS.md) |
+| **Implement a pattern** | [03-AGENTIC-PATTERNS.md](03-AGENTIC-PATTERNS.md) |
 
 ---
 
-## Two Pattern Classifications
-
-This documentation covers **two complementary pattern sets**:
-
-### Anthropic Research Patterns (6) - Theoretical
-
-| Pattern | Description |
-|---------|-------------|
-| ⛓️ Prompt Chaining | Sequential steps, each feeding the next |
-| 🚦 Routing | Direct inputs to specialized handlers |
-| 🛤️ Parallelization | Execute independent tasks simultaneously |
-| 🎭 Orchestrator-Workers | Central coordinator with specialized workers |
-| 🩻 Evaluator-Optimizer | Iterative improvement via feedback loops |
-| 🐉 Autonomous Agents | Self-directed with minimal human guidance |
-
-> Source: Anthropic's "Building Effective Agents" (Dec 2024)
-
-### Claude Code Implementation Patterns (7) - Practical
+## Agentic Patterns (7)
 
 | # | Pattern | Description | Complexity |
 |---|---------|-------------|:----------:|
-| 1 | **🎪 Subagent Orchestration** | Delegate to specialized agents with isolated context | Medium |
-| 2 | **🎓 Progressive Skills** | On-demand loading of modular capabilities | Medium |
-| 3 | **🚂 Parallel Tool Calling** | Maximize performance with simultaneous execution | Low |
-| 4 | **🧬 Master-Clone** | Dynamic self-spawning for independent domains | High |
-| 5 | **🖥️ Multi-Window Context** | State persistence across context windows | High |
-| 6 | **🎛️ Programmatic Orchestration** | Code-based agent control | Medium |
-| 7 | **🧙 Wizard Workflows** | Multi-step with user confirmation | Medium |
+| 1 | **🏎️ Direct Execution** | Baseline - no orchestration needed | None |
+| 2 | **⛓️ Prompt Chaining** | Sequential steps, each feeding the next | Low |
+| 3 | **🚦 Routing** | Direct inputs to specialized handlers | Low |
+| 4 | **🛤️ Parallelization** | Execute independent tasks simultaneously | Medium |
+| 5 | **🦑 Subagent Orchestration** | Delegate to specialized agents with isolated context | High |
+| 6 | **🩻 Evaluator-Optimizer** | Iterative improvement via feedback loops | Medium |
+| 7 | **🐉 Autonomous Agents** | Self-directed with minimal human guidance | Very High |
+
+### Mechanisms (implementation, not patterns)
+
+| Mechanism | Description |
+|-----------|-------------|
+| **📚 Progressive Skills** | On-demand loading of modular capabilities |
+| **🎛️ Programmatic Orchestration** | External code controls agent invocation |
+
+### Pattern Variants
+
+| Variant | Parent Pattern | Description |
+|---------|----------------|-------------|
+| **🧙 Wizard Workflow** | ⛓️ Prompt Chaining | Multi-step with user confirmation |
+| **🚂 Parallel Tool Calling** | 🛤️ Parallelization | Multiple tools in single message |
+| **🧬 Master-Clone** | 🛤️ Parallelization | Isolated clones for independent domains |
+| **🖥️ Multi-Window Context** | 🐉 Autonomous Agents | State persistence across sessions |
 
 ---
 
@@ -125,8 +124,7 @@ This documentation covers **two complementary pattern sets**:
 | [00-OVERVIEW.md](00-OVERVIEW.md) | Entry point, quick reference, emoji guide |
 | [01-OFFICIAL-TERMINOLOGY.md](01-OFFICIAL-TERMINOLOGY.md) | Components: 🐦 Subagent, 🦴 Command, 📚 Skill, 🪝 Hook |
 | [02-LAYER-ARCHITECTURE.md](02-LAYER-ARCHITECTURE.md) | 5-Layer system architecture |
-| [03-ANTHROPIC-RESEARCH-PATTERNS.md](03-ANTHROPIC-RESEARCH-PATTERNS.md) | 6 theoretical patterns from Anthropic |
-| [04-CLAUDE-CODE-PATTERNS.md](04-CLAUDE-CODE-PATTERNS.md) | 7 implementation patterns |
+| [03-AGENTIC-PATTERNS.md](03-AGENTIC-PATTERNS.md) | 7 unified patterns + 2 mechanisms |
 | [05-USE-CASES.md](05-USE-CASES.md) | Real-world validated examples |
 | [06-PATTERN-SELECTION-GUIDE.md](06-PATTERN-SELECTION-GUIDE.md) | Decision trees for choosing patterns |
 | [07-MAPPING-GLOSSARY.md](07-MAPPING-GLOSSARY.md) | Cross-reference & definitions |
@@ -144,6 +142,7 @@ This documentation covers **two complementary pattern sets**:
 ### Pattern Selection
 
 ```mermaid
+%%{init: {'theme': 'base', 'themeVariables': {'lineColor': '#64748b'}}}%%
 flowchart LR
     START((Task)) --> D{Destructive?}
     D -->|Yes| WIZ[🧙 Wizard]
@@ -151,8 +150,9 @@ flowchart LR
     C -->|No| DIRECT[🏎️ Direct]
     C -->|Yes| I{Independent?}
     I -->|Yes| PAR[🚂 Parallel]
-    I -->|No| SUB[🎪 Subagent]
+    I -->|No| SUB[🦑 Subagent]
 
+    style DIRECT fill:#64748b,color:#fff
     style WIZ fill:#14b8a6,color:#fff
     style PAR fill:#3b82f6,color:#fff
     style SUB fill:#ec4899,color:#fff
@@ -160,8 +160,8 @@ flowchart LR
 
 ```
 Simple Task (1 step)          → 🏎️ Direct execution
-Medium Task (2-4 steps)       → 🎓 Progressive Skills
-Complex Task (5+ steps)       → 🎪 Subagent Orchestration
+Medium Task (2-4 steps)       → 📚 Progressive Skills
+Complex Task (5+ steps)       → 🦑 Subagent Orchestration
 Destructive Operation         → 🧙 Wizard Workflows (mandatory)
 Long-Running (>10 min)        → 🖥️ Multi-Window Context
 ```
@@ -172,8 +172,8 @@ Long-Running (>10 min)        → 🖥️ Multi-Window Context
 
 | Pattern | Claude | GPT Agents | Gemini ADK | LangGraph |
 |:--------|:------:|:----------:|:----------:|:---------:|
-| 🎪 Subagent Orchestration | ✅ | ✅ Handoffs | ✅ Multi-agent | ✅ Subgraphs |
-| 🎓 Progressive Skills | ✅ | ❌ | ❌ | ❌ |
+| 🦑 Subagent Orchestration | ✅ | ✅ Handoffs | ✅ Multi-agent | ✅ Subgraphs |
+| 📚 Progressive Skills | ✅ | ❌ | ❌ | ❌ |
 | 🚂 Parallel Tool Calling | ✅ | ✅ | ✅ ParallelAgent | ✅ Fan-out |
 | 🧬 Master-Clone | ✅ | ✅ Dynamic | ✅ Custom | ✅ Send API |
 | 🖥️ Multi-Window Context | ✅ | ⚠️ Sessions | ⚠️ ctx.state | ✅ Checkpointing |
@@ -182,7 +182,7 @@ Long-Running (>10 min)        → 🖥️ Multi-Window Context
 
 **Legend:** ✅ Native | ⚠️ Partial | ❌ Not supported
 
-> **Note**: 🎓 Progressive Skills uses Claude Code's unique `.md`-based skill system.
+> **Note**: 📚 Progressive Skills uses Claude Code's unique `.md`-based skill system.
 
 ---
 
@@ -205,8 +205,7 @@ Long-Running (>10 min)        → 🖥️ Multi-Window Context
 ├── 00-OVERVIEW.md                      # Entry point, quick reference
 ├── 01-OFFICIAL-TERMINOLOGY.md          # Components definitions
 ├── 02-LAYER-ARCHITECTURE.md            # 5-Layer system architecture
-├── 03-ANTHROPIC-RESEARCH-PATTERNS.md   # 6 theoretical patterns
-├── 04-CLAUDE-CODE-PATTERNS.md          # 7 implementation patterns
+├── 03-AGENTIC-PATTERNS.md              # 7 unified patterns + 2 mechanisms
 ├── 05-USE-CASES.md                     # Real-world examples
 ├── 06-PATTERN-SELECTION-GUIDE.md       # Decision trees
 ├── 07-MAPPING-GLOSSARY.md              # Cross-reference & definitions

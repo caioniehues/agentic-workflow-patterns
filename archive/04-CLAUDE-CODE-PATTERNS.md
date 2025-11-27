@@ -56,7 +56,7 @@ These 7 patterns represent practical implementations for Claude Code, building o
 
 ### Definition
 
-🐔 Main Agent spawns specialized 🐦 Subagents via the 📤 `Task` tool to handle complex, domain-specific tasks.
+🐔 Main Agent 🪺 spawns specialized 🐦 Subagents via the `Task` tool to handle complex, domain-specific tasks.
 
 ### Maps to Anthropic Pattern
 
@@ -73,9 +73,9 @@ flowchart TB
 
     USER["🙋‍♀️📥 User Request"]:::user --> MA["🐔 Main Agent"]:::main
 
-    MA -->|"📤 Task(code-reviewer)"| SA1["🐦 Code Reviewer"]:::subagent
-    MA -->|"📤 Task(security-auditor)"| SA2["🐦 Security Auditor"]:::subagent
-    MA -->|"📤 Task(doc-writer)"| SA3["🐦 Doc Writer"]:::subagent
+    MA -->|"🪺 Task(code-reviewer)"| SA1["🐦 Code Reviewer"]:::subagent
+    MA -->|"🪺 Task(security-auditor)"| SA2["🐦 Security Auditor"]:::subagent
+    MA -->|"🪺 Task(doc-writer)"| SA3["🐦 Doc Writer"]:::subagent
 
     SA1 -->|Report| MA
     SA2 -->|Report| MA
@@ -87,7 +87,7 @@ flowchart TB
 ### Implementation
 
 ```python
-# 🐔 Main Agent spawns 🐦 Subagents via 📤 Task tool
+# 🐔 Main Agent 🪺 spawns 🐦 Subagents via Task tool
 
 # Sequential spawning
 Task(
@@ -163,7 +163,7 @@ Load 📚 skills on-demand to enhance 🐔 agent capabilities for specific task 
 %%{init: {'theme': 'base', 'themeVariables': {'lineColor': '#64748b'}}}%%
 flowchart TB
     classDef main fill:#8b5cf6,stroke:#7c3aed,stroke-width:2px,color:#ffffff
-    classDef skill fill:#10b981,stroke:#059669,stroke-width:2px,color:#ffffff
+    classDef skill fill:#8b5cf6,stroke:#7c3aed,stroke-width:2px,color:#ffffff
     classDef decision fill:#f59e0b,stroke:#d97706,stroke-width:2px,color:#ffffff
 
     REQ["🙋‍♀️📥 User Request"] --> MA["🐔 Main Agent"]:::main
@@ -836,7 +836,7 @@ Practical limits for stable parallel execution.
 |------|-----------------|------------------|
 | 🐦 Concurrent Subagents | **10-15** | Context overflow, memory pressure |
 | 🔌 MCP calls per subagent | **5** | Rate limit errors |
-| 📤 Task calls per message | **10** | API limits, timeouts |
+| 🪺 Task calls per message | **10** | API limits, timeouts |
 
 **Batching Strategy for Large Workloads:**
 
