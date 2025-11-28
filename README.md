@@ -26,57 +26,38 @@ Because complex systems deserve simple explanations.</sub>
 ## Overview
 
 ```mermaid
-%%{init: {'theme': 'dark'}}%%
+%%{init: {'theme': 'base', 'themeVariables': {'lineColor': '#a78bfa'}}}%%
 flowchart TB
-    ROOT((🐔 Agentic<br/>Systems))
+    classDef root fill:#8b5cf6,stroke:#7c3aed,stroke-width:3px,color:#ffffff
+    classDef foundations fill:#3b82f6,stroke:#2563eb,stroke-width:2px,color:#ffffff
+    classDef workflows fill:#8b5cf6,stroke:#7c3aed,stroke-width:2px,color:#ffffff
+    classDef agents fill:#ec4899,stroke:#db2777,stroke-width:2px,color:#ffffff
+    classDef implementation fill:#6366f1,stroke:#4f46e5,stroke-width:2px,color:#ffffff
+    classDef leaf fill:#1e293b,stroke:#475569,stroke-width:1px,color:#f8fafc
 
-    ROOT --- F[🧱 Foundations]
-    ROOT --- W[⚙️ Workflows]
-    ROOT --- A[🐉 Agents]
-    ROOT --- I[🛠️ Implementation]
+    ROOT((🐔 Agentic<br/>Systems)):::root
 
-    F --- F1[Augmented LLM]
+    ROOT --> F[🧱 Foundations]:::foundations
+    ROOT --> W[⚙️ Workflows]:::workflows
+    ROOT --> A[🐉 Agents]:::agents
+    ROOT --> I[🛠️ Implementation]:::implementation
 
-    W --- W1[🏎️ Baseline]
-    W --- W2[⛓️ Chaining]
-    W --- W3[🚦 Routing]
-    W --- W4[🛤️ Parallel]
-    W --- W5[🦑 Orchestrator]
-    W --- W6[🩻 Evaluator]
+    F --> F1[Augmented LLM]:::leaf
 
-    A --- A1[Autonomous]
-    A --- A2[Multi-Window]
+    W --> W1[🏎️ Baseline]:::leaf
+    W --> W2[⛓️ Prompt Chaining]:::leaf
+    W --> W3[🚦 Routing]:::leaf
+    W --> W4[🛤️ Parallelization]:::leaf
+    W --> W5[🦑 Orchestrator]:::leaf
+    W --> W6[🩻 Evaluator]:::leaf
 
-    I --- I1[🐦 Subagent]
-    I --- I2[🦴 Command]
-    I --- I3[📚 Skill]
-    I --- I4[🪝 Hook]
+    A --> A1[Autonomous]:::leaf
+    A --> A2[Multi-Window]:::leaf
 
-    classDef root fill:#8b5cf6,stroke:#7c3aed,color:#fff,stroke-width:3px
-    classDef foundation fill:#6366f1,stroke:#4f46e5,color:#fff
-    classDef workflow fill:#8b5cf6,stroke:#7c3aed,color:#fff
-    classDef agent fill:#ec4899,stroke:#db2777,color:#fff
-    classDef impl fill:#14b8a6,stroke:#0d9488,color:#fff
-    classDef leaf fill:#1e293b,stroke:#475569,color:#f1f5f9
-
-    ROOT:::root
-    F:::foundation
-    W:::workflow
-    A:::agent
-    I:::impl
-    F1:::leaf
-    W1:::leaf
-    W2:::leaf
-    W3:::leaf
-    W4:::leaf
-    W5:::leaf
-    W6:::leaf
-    A1:::leaf
-    A2:::leaf
-    I1:::leaf
-    I2:::leaf
-    I3:::leaf
-    I4:::leaf
+    I --> I1[🐦 Subagent]:::leaf
+    I --> I2[🦴 Command]:::leaf
+    I --> I3[📚 Skill]:::leaf
+    I --> I4[🪝 Hook]:::leaf
 ```
 
 ---
