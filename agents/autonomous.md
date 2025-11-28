@@ -1,8 +1,8 @@
 <div align="center">
 
-[🏠 Home](../README.md) › [Agentic Systems](./) › **🐉 Autonomous Agents**
+[🏠 Home](../README.md) › [Agents](./) › **🐉 Autonomous Agents**
 
-`━━━━━━━━━━━━━━━━━━━━━━●━━━━━━━━━━━━` **7/8** Autonomous Agents
+`━━━━━━━━━━━━━━━━━━━━━━●━━━━━━━━━━━━━` **1/2** Autonomous Agents
 
 </div>
 
@@ -126,7 +126,7 @@ Agent:
 
 ## When NOT to Use Agents
 
-- Predictable tasks with known steps (use 🛤️ Workflows)
+- Predictable tasks with known steps (use Workflows)
 - No rollback capability
 - Tight time constraints
 - Untrusted environments
@@ -211,9 +211,9 @@ Agent:
 <div align="center">
 
 ```
-━━━━━━━━━━━━━━━━━━━━━━●━━━━━━━━━━━━ 7/8
+━━━━━━━━━━━━━━━━━━━━━━●━━━━━━━━━━━━━ 1/2
 ```
 
-[← 06 Evaluator-Optimizer](06-evaluator-optimizer.md) • [08 Multi-Window Context →](08-multi-window-context.md)
+[← Agents](./) • [Multi-Window Context →](multi-window.md)
 
 </div>

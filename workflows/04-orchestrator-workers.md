@@ -1,8 +1,8 @@
 <div align="center">
 
-[🏠 Home](../README.md) › [Agentic Systems](./) › **🦑 Orchestrator-Workers**
+[🏠 Home](../README.md) › [Workflows](./) › **🦑 Orchestrator-Workers**
 
-`━━━━━━━━━━━━━━━━●━━━━━━━━━━━━━━━━━━` **5/8** Orchestrator-Workers
+`━━━━━━━━━━━━━━━━━━━━━●━━━━━━━━━━━━━━` **4/5** Orchestrator-Workers
 
 </div>
 
@@ -195,9 +195,9 @@ Task(
 <div align="center">
 
 ```
-━━━━━━━━━━━━━━━━●━━━━━━━━━━━━━━━━━━ 5/8
+━━━━━━━━━━━━━━━━━━━━━●━━━━━━━━━━━━━━ 4/5
 ```
 
-[← 04 Parallelization](04-parallelization.md) • [06 Evaluator-Optimizer →](06-evaluator-optimizer.md)
+[← 03 Parallelization](03-parallelization.md) • [05 Evaluator-Optimizer →](05-evaluator-optimizer.md)
 
 </div>

@@ -1,8 +1,8 @@
 <div align="center">
 
-[🏠 Home](../README.md) › [Agentic Systems](./) › **🏎️ Baseline**
+[🏠 Home](../README.md) › [Workflows](./) › **🏎️ Baseline**
 
-`━━━━●━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━` **1/8** Baseline
+`━━●━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━` **0/5** Baseline
 
 </div>
 
@@ -63,9 +63,9 @@ flowchart LR
 <div align="center">
 
 ```
-━━━━●━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1/8
+━━●━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 0/5
 ```
 
-[← 00 Building Block](00-building-block.md) • [02 Prompt Chaining →](02-prompt-chaining.md)
+[← Workflows](./) • [01 Prompt Chaining →](01-prompt-chaining.md)
 
 </div>

@@ -1,8 +1,8 @@
 <div align="center">
 
-[🏠 Home](../README.md) › [Agentic Systems](./) › **🛤️ Parallelization**
+[🏠 Home](../README.md) › [Workflows](./) › **🛤️ Parallelization**
 
-`━━━━━━━━━━━━━●━━━━━━━━━━━━━━━━━━━━━` **4/8** Parallelization
+`━━━━━━━━━━━━━━━━●━━━━━━━━━━━━━━━━━━━` **3/5** Parallelization
 
 </div>
 
@@ -231,9 +231,9 @@ flowchart TB
 <div align="center">
 
 ```
-━━━━━━━━━━━━━●━━━━━━━━━━━━━━━━━━━━━ 4/8
+━━━━━━━━━━━━━━━━●━━━━━━━━━━━━━━━━━━━ 3/5
 ```
 
-[← 03 Routing](03-routing.md) • [05 Orchestrator-Workers →](05-orchestrator-workers.md)
+[← 02 Routing](02-routing.md) • [04 Orchestrator-Workers →](04-orchestrator-workers.md)
 
 </div>

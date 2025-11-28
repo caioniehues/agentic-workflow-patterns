@@ -1,8 +1,8 @@
 <div align="center">
 
-[🏠 Home](../README.md) › [Agentic Systems](./) › **⛓️ Prompt Chaining**
+[🏠 Home](../README.md) › [Workflows](./) › **⛓️ Prompt Chaining**
 
-`━━━━━━━●━━━━━━━━━━━━━━━━━━━━━━━━━━━` **2/8** Prompt Chaining
+`━━━━━━●━━━━━━━━━━━━━━━━━━━━━━━━━━━━━` **1/5** Prompt Chaining
 
 </div>
 
@@ -90,7 +90,7 @@ Step 3: "Generate documentation for each function"
 ## When NOT to Use
 
 - Steps can be done independently (use 🛤️ Parallelization)
-- Simple single-step tasks (use 🏎️ Direct Execution)
+- Simple single-step tasks (use 🏎️ Baseline)
 
 ---
 
@@ -128,9 +128,9 @@ stateDiagram-v2
 <div align="center">
 
 ```
-━━━━━━━●━━━━━━━━━━━━━━━━━━━━━━━━━━━ 2/8
+━━━━━━●━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1/5
 ```
 
-[← 01 Baseline](01-baseline.md) • [03 Routing →](03-routing.md)
+[← 00 Baseline](00-baseline.md) • [02 Routing →](02-routing.md)
 
 </div>

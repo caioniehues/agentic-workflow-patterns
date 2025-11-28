@@ -1,14 +1,12 @@
 <div align="center">
 
-[🏠 Home](../README.md) › [Agentic Systems](./) › **🧱 Building Block**
-
-`━━●━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━` **0/8** Building Block
+[🏠 Home](../README.md) › [Foundations](./) › **🧱 Augmented LLM**
 
 </div>
 
 ---
 
-# 🧱 Building Block: The Augmented LLM
+# 🧱 The Augmented LLM
 
 > **TL;DR:** The foundation of ALL agentic systems — an LLM enhanced with retrieval, tools, and memory. Every workflow builds on this.
 
@@ -115,10 +113,6 @@ flowchart LR
 
 <div align="center">
 
-```
-━━●━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 0/8
-```
-
-[← Agentic Systems](./) • [01 Baseline →](01-baseline.md)
+[🏠 Home](../README.md) • [Workflows →](../workflows/)
 
 </div>

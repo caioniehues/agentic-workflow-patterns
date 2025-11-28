@@ -1,8 +1,8 @@
 <div align="center">
 
-[🏠 Home](../README.md) › [Agentic Systems](./) › **🩻 Evaluator-Optimizer**
+[🏠 Home](../README.md) › [Workflows](./) › **🩻 Evaluator-Optimizer**
 
-`━━━━━━━━━━━━━━━━━━━●━━━━━━━━━━━━━━━` **6/8** Evaluator-Optimizer
+`━━━━━━━━━━━━━━━━━━━━━━━━━━●━━━━━━━━━` **5/5** Evaluator-Optimizer
 
 </div>
 
@@ -146,9 +146,9 @@ sequenceDiagram
 <div align="center">
 
 ```
-━━━━━━━━━━━━━━━━━━━●━━━━━━━━━━━━━━━ 6/8
+━━━━━━━━━━━━━━━━━━━━━━━━━━●━━━━━━━━━ 5/5
 ```
 
-[← 05 Orchestrator-Workers](05-orchestrator-workers.md) • [07 Autonomous Agents →](07-autonomous-agents.md)
+[← 04 Orchestrator-Workers](04-orchestrator-workers.md) • [Agents →](../agents/)
 
 </div>

@@ -1,8 +1,8 @@
 <div align="center">
 
-[🏠 Home](../README.md) › [Agentic Systems](./) › **🚦 Routing**
+[🏠 Home](../README.md) › [Workflows](./) › **🚦 Routing**
 
-`━━━━━━━━━━●━━━━━━━━━━━━━━━━━━━━━━━━` **3/8** Routing
+`━━━━━━━━━━━●━━━━━━━━━━━━━━━━━━━━━━━━` **2/5** Routing
 
 </div>
 
@@ -89,9 +89,9 @@ Routing works well for complex tasks where there are **distinct categories** tha
 <div align="center">
 
 ```
-━━━━━━━━━━●━━━━━━━━━━━━━━━━━━━━━━━━ 3/8
+━━━━━━━━━━━●━━━━━━━━━━━━━━━━━━━━━━━━ 2/5
 ```
 
-[← 02 Prompt Chaining](02-prompt-chaining.md) • [04 Parallelization →](04-parallelization.md)
+[← 01 Prompt Chaining](01-prompt-chaining.md) • [03 Parallelization →](03-parallelization.md)
 
 </div>
