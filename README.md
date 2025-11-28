@@ -9,7 +9,6 @@ Because complex systems deserve simple explanations.</sub>
 
 <br/>
 
-<!-- Credibility -->
 <a href="https://docs.anthropic.com/en/docs/claude-code">
   <img src="https://img.shields.io/badge/Claude_Code-CLI-8b5cf6?style=flat-square&logo=anthropic" alt="Claude Code CLI"/>
 </a>
@@ -20,76 +19,97 @@ Because complex systems deserve simple explanations.</sub>
   <img src="https://awesome.re/mentioned-badge-flat.svg" alt="Awesome Claude Code"/>
 </a>
 
-<br/>
-
-<!-- Stats -->
-<img src="https://img.shields.io/badge/Workflows-6-8b5cf6?style=flat-square" alt="6 Workflows"/>
-<img src="https://img.shields.io/badge/Agents-2-ec4899?style=flat-square" alt="2 Agents"/>
-<img src="https://img.shields.io/badge/Components-4-10b981?style=flat-square" alt="4 Components"/>
-<img src="https://img.shields.io/badge/🏴‍☠️🪐-SuperNovae-1e293b?style=flat-square" alt="SuperNovae Studio"/>
-
 </div>
 
 ---
 
-## Why This Repo? 🪺
+## Overview
 
-Building effective AI agents requires proven patterns, not guesswork.
-
-This repository distills **official Anthropic documentation** into actionable designs:
-
-| What you get | Why it matters |
-|--------------|----------------|
-| 📊 **Mermaid diagrams** | See the architecture, don't just read about it |
-| 💡 **Clear examples** | Copy-paste ready, not abstract theory |
-| 🗺️ **Decision guides** | Know which workflow fits your use case |
-| 🐔 **Chicken metaphors** | Remember systems, not jargon |
-
-*Why chickens? Because 🐔 Main Agent spawning 🐦 Subagents is way easier to remember than "hierarchical agent orchestration".*
+```mermaid
+%%{init: {'theme': 'base', 'themeVariables': {'primaryColor': '#8b5cf6', 'lineColor': '#64748b'}}}%%
+mindmap
+  root((🐔 Agentic<br/>Systems))
+    🧱 Foundations
+      Augmented LLM
+    ⚙️ Workflows
+      🏎️ Baseline
+      ⛓️ Prompt Chaining
+      🚦 Routing
+      🛤️ Parallelization
+      🦑 Orchestrator
+      🩻 Evaluator
+    🐉 Agents
+      Autonomous
+      Multi-Window
+    🛠️ Implementation
+      🐦 Subagent
+      🦴 Command
+      📚 Skill
+      🪝 Hook
+```
 
 ---
 
-## 🗺️ Navigation Hub
+## 🗺️ Navigation
 
 <table>
 <tr>
-<td width="33%" valign="top">
+<td width="50%" valign="top">
 
 ### 🧱 [Foundations](foundations/)
+*The building block for everything*
 
-The building block for everything.
-
-| Doc | Description |
-|-----|-------------|
+| | |
+|---|---|
 | [🧱 Augmented LLM](foundations/augmented-llm.md) | LLM + Retrieval + Tools + Memory |
 
-</td>
-<td width="33%" valign="top">
+---
 
 ### ⚙️ [Workflows](workflows/)
+*Predefined orchestration — code controls the flow*
 
-Predefined orchestration paths.
-
-| # | Workflow |
-|:-:|----------|
-| 0 | [🏎️ Baseline](workflows/00-baseline.md) |
-| 1 | [⛓️ Prompt Chaining](workflows/01-prompt-chaining.md) |
-| 2 | [🚦 Routing](workflows/02-routing.md) |
-| 3 | [🛤️ Parallelization](workflows/03-parallelization.md) |
-| 4 | [🦑 Orchestrator-Workers](workflows/04-orchestrator-workers.md) |
-| 5 | [🩻 Evaluator-Optimizer](workflows/05-evaluator-optimizer.md) |
+| # | Workflow | Use When |
+|:-:|----------|----------|
+| 0 | [🏎️ Baseline](workflows/00-baseline.md) | Simple, 1-step task |
+| 1 | [⛓️ Prompt Chaining](workflows/01-prompt-chaining.md) | Sequential steps |
+| 2 | [🚦 Routing](workflows/02-routing.md) | Classify & dispatch |
+| 3 | [🛤️ Parallelization](workflows/03-parallelization.md) | Independent tasks |
+| 4 | [🦑 Orchestrator](workflows/04-orchestrator-workers.md) | Expert delegation |
+| 5 | [🩻 Evaluator](workflows/05-evaluator-optimizer.md) | Quality iteration |
 
 </td>
-<td width="33%" valign="top">
+<td width="50%" valign="top">
 
 ### 🐉 [Agents](agents/)
+*Dynamic autonomy — LLM controls the flow*
 
-Dynamic, autonomous systems.
-
-| Agent | Description |
-|-------|-------------|
-| [🐉 Autonomous](agents/autonomous.md) | Self-directed execution |
+| Agent | Use When |
+|-------|----------|
+| [🐉 Autonomous](agents/autonomous.md) | Open-ended problems |
 | [🖥️ Multi-Window](agents/multi-window.md) | Cross-session state |
+
+---
+
+### 🛠️ [Implementation](implementation/)
+*Claude Code components & architecture*
+
+| Component | Location |
+|-----------|----------|
+| [🐦 Subagent](implementation/components/subagent.md) | `.claude/agents/*.md` |
+| [🦴 Command](implementation/components/slash-command.md) | `.claude/commands/*.md` |
+| [📚 Skill](implementation/components/skill.md) | `.claude/skills/*/SKILL.md` |
+| [🪝 Hook](implementation/components/hook.md) | `.claude/settings.json` |
+
+---
+
+### 🗺️ [Guides](guides/) & [📖 Reference](reference/)
+
+| Resource | Description |
+|----------|-------------|
+| [Selection Guide](guides/README.md) | Choose the right pattern |
+| [Use Cases](guides/use-cases/) | 6 validated examples |
+| [Glossary](reference/glossary.md) | A-Z definitions |
+| [Visual Standards](reference/visual-standards.md) | Colors & emojis |
 
 </td>
 </tr>
@@ -97,81 +117,121 @@ Dynamic, autonomous systems.
 
 ---
 
-## Anthropic Taxonomy
-
-```
-┌─────────────────────────────────────────────────────────────────────────────┐
-│                         AGENTIC SYSTEMS (umbrella)                          │
-├─────────────────────────────────────────────────────────────────────────────┤
-│                                                                             │
-│  WORKFLOWS (6)                                   AGENTS (2)                 │
-│  ─────────────                                   ──────────                 │
-│  🏎️ Baseline (Direct Execution)                  🐉 Autonomous Agents       │
-│  ⛓️ Prompt Chaining                              🖥️ Multi-Window Context    │
-│  🚦 Routing                                                                 │
-│  🛤️ Parallelization                                                         │
-│  🦑 Orchestrator-Workers                                                    │
-│  🩻 Evaluator-Optimizer                                                     │
-│                                                                             │
-│  CODE controls the flow ─────────────────────► LLM controls the flow        │
-│                                                                             │
-└─────────────────────────────────────────────────────────────────────────────┘
-```
-
-> Based on [Building Effective Agents](https://www.anthropic.com/engineering/building-effective-agents) (Anthropic, Dec 2024)
-
----
-
-## Quick Decision Tree
+## Quick Decision
 
 ```mermaid
 %%{init: {'theme': 'base', 'themeVariables': {'lineColor': '#64748b'}}}%%
 flowchart LR
-    START((Task)) --> D{Destructive?}
-    D -->|Yes| WIZ[🧙 Wizard]
-    D -->|No| C{Complex?}
-    C -->|No| DIRECT[🏎️ Baseline]
-    C -->|Yes| P{Predictable?}
-    P -->|Yes| WORK[⚙️ Workflow]
-    P -->|No| AGENT[🐉 Agent]
+    START((🎯 Task)) --> DEST{Destructive?}
+    DEST -->|Yes| WIZ[🧙 Wizard]
+    DEST -->|No| COMP{Complex?}
+    COMP -->|No| BASE[🏎️ Baseline]
+    COMP -->|Yes| PRED{Predictable<br/>steps?}
+    PRED -->|Yes| WORK{Need<br/>specialists?}
+    PRED -->|No| AGENT[🐉 Agent]
+    WORK -->|No| CHAIN[⛓️ Chain]
+    WORK -->|Yes| ORCH[🦑 Orchestrator]
 
+    classDef default fill:#f8fafc,stroke:#64748b,stroke-width:1px,color:#1e293b
+    classDef decision fill:#fef3c7,stroke:#f59e0b,stroke-width:2px,color:#92400e
     classDef baseline fill:#64748b,stroke:#475569,stroke-width:2px,color:#ffffff
     classDef wizard fill:#14b8a6,stroke:#0d9488,stroke-width:2px,color:#ffffff
     classDef workflow fill:#8b5cf6,stroke:#7c3aed,stroke-width:2px,color:#ffffff
     classDef agent fill:#ec4899,stroke:#db2777,stroke-width:2px,color:#ffffff
 
-    DIRECT:::baseline
+    START:::decision
+    DEST:::decision
+    COMP:::decision
+    PRED:::decision
+    WORK:::decision
+    BASE:::baseline
     WIZ:::wizard
-    WORK:::workflow
+    CHAIN:::workflow
+    ORCH:::workflow
     AGENT:::agent
 ```
 
-```
-Simple Task (1 step)          → 🏎️ Baseline
-Medium Task (2-4 steps)       → ⛓️ Prompt Chaining
-Complex + Predictable         → 🦑 Orchestrator-Workers
-Complex + Open-ended          → 🐉 Autonomous Agent
-Destructive Operation         → 🧙 Wizard (human checkpoints)
-Long-Running (>10 min)        → 🖥️ Multi-Window Context
-```
+| Situation | → Use |
+|-----------|-------|
+| Simple task (1 step) | 🏎️ Baseline |
+| Sequential (2-4 steps) | ⛓️ Prompt Chaining |
+| Categorize inputs | 🚦 Routing |
+| Independent subtasks | 🛤️ Parallelization |
+| Multiple specialists | 🦑 Orchestrator-Workers |
+| Quality iteration | 🩻 Evaluator-Optimizer |
+| Open-ended / unknown steps | 🐉 Autonomous Agent |
+| Destructive operations | 🧙 Wizard (human checkpoints) |
+| Long-running (>10 min) | 🖥️ Multi-Window Context |
 
 ---
 
-## Key Concepts
+## Anthropic Taxonomy
 
-### Critical Rule
+```mermaid
+%%{init: {'theme': 'base', 'themeVariables': {'lineColor': '#64748b'}}}%%
+flowchart LR
+    subgraph WORKFLOWS["⚙️ WORKFLOWS"]
+        direction TB
+        W1[🏎️ Baseline]
+        W2[⛓️ Prompt Chaining]
+        W3[🚦 Routing]
+        W4[🛤️ Parallelization]
+        W5[🦑 Orchestrator]
+        W6[🩻 Evaluator]
+    end
 
-> **🐦 Subagents cannot spawn other 🐦 subagents.**
-> All delegation must go through the 🐔 Main Agent.
+    subgraph AGENTS["🐉 AGENTS"]
+        direction TB
+        A1[🐉 Autonomous]
+        A2[🖥️ Multi-Window]
+    end
 
-### Workflows vs Agents
+    CODE[📝 Code controls] --> WORKFLOWS
+    WORKFLOWS --> LLM[🧠 LLM controls]
+    LLM --> AGENTS
 
-| Aspect | Workflows | Agents |
-|--------|-----------|--------|
-| **Flow control** | Code | LLM |
-| **Path** | Predefined | Dynamic |
-| **Predictability** | High | Low |
-| **Use case** | Known steps | Open-ended |
+    classDef workflowBox fill:#ede9fe,stroke:#8b5cf6,stroke-width:2px,color:#5b21b6
+    classDef agentBox fill:#fce7f3,stroke:#ec4899,stroke-width:2px,color:#9d174d
+    classDef control fill:#f1f5f9,stroke:#64748b,stroke-width:1px,color:#475569
+
+    WORKFLOWS:::workflowBox
+    AGENTS:::agentBox
+    CODE:::control
+    LLM:::control
+```
+
+> **Key distinction:** Workflows have predefined paths (code controls). Agents decide their own path (LLM controls).
+
+---
+
+## Critical Rule
+
+```mermaid
+%%{init: {'theme': 'base', 'themeVariables': {'lineColor': '#64748b'}}}%%
+flowchart LR
+    U1[🙋‍♀️ User] -->|request| MA[🐔 Main Agent]
+    MA -->|🪺 spawn| SA1[🐦 Subagent]
+    MA -->|🪺 spawn| SA2[🐦 Subagent]
+    SA1 -->|result| MA
+    SA2 -->|result| MA
+    MA -->|response| U2[💁‍♀️ User]
+
+    SA1 x--x|"❌ CANNOT spawn"| SA3[🐦]
+
+    classDef user fill:#6366f1,stroke:#4f46e5,stroke-width:2px,color:#ffffff
+    classDef main fill:#f59e0b,stroke:#d97706,stroke-width:2px,color:#ffffff
+    classDef sub fill:#ec4899,stroke:#db2777,stroke-width:2px,color:#ffffff
+    classDef blocked fill:#ef4444,stroke:#dc2626,stroke-width:2px,color:#ffffff,stroke-dasharray: 5 5
+
+    U1:::user
+    U2:::user
+    MA:::main
+    SA1:::sub
+    SA2:::sub
+    SA3:::blocked
+```
+
+> **🐦 Subagents cannot spawn other 🐦 subagents.** All delegation flows through 🐔 Main Agent.
 
 ---
 
@@ -179,81 +239,68 @@ Long-Running (>10 min)        → 🖥️ Multi-Window Context
 
 ```
 .
-├── README.md                    # 🏠 This file (navigation hub)
+├── README.md                      # 🏠 You are here
 │
-├── foundations/                 # 🧱 Core concepts
-│   └── augmented-llm.md         # The building block
+├── foundations/                   # 🧱 Core concepts
+│   └── augmented-llm.md
 │
-├── workflows/                   # ⚙️ Predefined orchestration (6)
-│   ├── 00-baseline.md           # Direct execution
-│   ├── 01-prompt-chaining.md    # Sequential + Wizard
-│   ├── 02-routing.md            # Classification routing
-│   ├── 03-parallelization.md    # Parallel + Master-Clone
+├── workflows/                     # ⚙️ Predefined orchestration
+│   ├── 00-baseline.md
+│   ├── 01-prompt-chaining.md
+│   ├── 02-routing.md
+│   ├── 03-parallelization.md
 │   ├── 04-orchestrator-workers.md
 │   └── 05-evaluator-optimizer.md
 │
-├── agents/                      # 🐉 Dynamic autonomous (2)
-│   ├── autonomous.md            # Self-directed agents
-│   └── multi-window.md          # Cross-session state
+├── agents/                        # 🐉 Autonomous systems
+│   ├── autonomous.md
+│   └── multi-window.md
 │
-├── guides/                      # 🗺️ Workflow selection
-└── reference/                   # 📖 Quick lookups
+├── implementation/                # 🛠️ Claude Code specifics
+│   ├── components/                # 🐦🦴📚🪝
+│   └── architecture/              # 5-layer system
+│
+├── guides/                        # 🗺️ Selection & use cases
+│   └── use-cases/                 # 6 validated examples
+│
+└── reference/                     # 📖 Glossary, standards
 ```
 
 ---
 
 ## References
 
-| Resource | URL |
-|----------|-----|
-| Claude Code Docs | https://docs.anthropic.com/en/docs/claude-code |
-| Agent SDK | https://docs.anthropic.com/docs/en/agent-sdk |
-| Building Effective Agents | Anthropic Research Paper (Dec 2024) |
-| Anthropic Cookbook | https://github.com/anthropics/anthropic-cookbook |
+| Resource | Link |
+|----------|------|
+| Building Effective Agents | [anthropic.com/engineering](https://www.anthropic.com/engineering/building-effective-agents) |
+| Claude Code Docs | [docs.anthropic.com](https://docs.anthropic.com/en/docs/claude-code) |
+| Agent SDK | [docs.anthropic.com/agent-sdk](https://docs.anthropic.com/docs/en/agent-sdk) |
+| Anthropic Cookbook | [github.com/anthropics](https://github.com/anthropics/anthropic-cookbook) |
 
 ---
 
 ## Contributing
 
-We welcome contributions! This repository aims to be the definitive collection of Claude agentic systems.
+Contributions welcome! See [CONTRIBUTING.md](CONTRIBUTING.md).
 
-### Ways to Contribute
-
-- **Add new workflows** — Document systems from Anthropic sources
-- **Improve existing content** — Add examples, clarify explanations
-- **Fix issues** — Correct errors, update outdated information
-- **Add translations** — Help make content accessible globally
-
-### Requirements
-
-All contributions must:
-1. **Reference official sources** — Link to Anthropic docs or blog posts
-2. **Include code examples** — Provide working, tested snippets
-3. **Follow the format** — Use the established template
-4. **Add Mermaid diagrams** — Visual explanations where helpful
-
-See [CONTRIBUTING.md](CONTRIBUTING.md) for detailed guidelines.
+**Requirements:** Official sources • Code examples • Mermaid diagrams • Established format
 
 ---
 
-## License
+<div align="center">
 
-MIT License — See [LICENSE](LICENSE) for details.
+<sub>Built with Claude Code | Based on Anthropic documentation | 2025</sub><br/>
+<sub>Independent community resource — not affiliated with Anthropic</sub>
 
----
+<br/>
 
-<p align="center">
-  <sub>Built with Claude Code | Based on official documentation | November 2025</sub><br/>
-  <sub>Independent community resource — not affiliated with Anthropic</sub>
-</p>
+<a href="https://github.com/ThibautMelen">
+  <img src="https://avatars.githubusercontent.com/u/20891897?s=200&v=4" alt="ThibautMelen" width="32"/>
+</a>
+&nbsp;❤️&nbsp;
+<a href="https://github.com/SuperNovae-studio">
+  <img src="https://avatars.githubusercontent.com/u/33066282?s=200&v=4" alt="SuperNovae Studio" width="32"/>
+</a>
+&nbsp;🏴‍☠️
 
-<p align="center">
-  <a href="https://github.com/ThibautMelen">
-    <img src="https://avatars.githubusercontent.com/u/20891897?s=200&v=4" alt="ThibautMelen" width="40"/>
-  </a>
-  &nbsp;&nbsp;❤️&nbsp;&nbsp;
-  <a href="https://github.com/SuperNovae-studio">
-    <img src="https://avatars.githubusercontent.com/u/33066282?s=200&v=4" alt="SuperNovae Studio" width="40"/>
-  </a>
-  &nbsp;&nbsp;🏴‍☠️
-</p>
+</div>
