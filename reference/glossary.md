@@ -50,8 +50,8 @@ AskUserQuestion(questions=[{
 : *Also known as:* Self-Directed Agent, True Agent
 
 **Augmented LLM**
-: The 🧱 Building Block — foundation for all agentic systems. An LLM enhanced with retrieval (RAG/docs), tools (actions), and memory (context persistence).
-: *Also known as:* 🧱 Building Block, Enhanced LLM, Tooled LLM
+: The 🦄 Building Block — foundation for all agentic systems. An LLM enhanced with retrieval (RAG/docs), tools (actions), and memory (context persistence).
+: *Also known as:* 🦄 Building Block, Enhanced LLM, Tooled LLM
 : *See also:* Building Block
 
 **agentId**
@@ -62,7 +62,7 @@ AskUserQuestion(questions=[{
 
 ## B
 
-**🧱 Building Block**
+**🦄 Building Block**
 : Anthropic's term for the **Augmented LLM** — the foundational unit of all agentic systems. An LLM enhanced with retrieval, tools, and memory.
 : ⚠️ **Not to be confused with:** Claude Code Components (Subagent, Slash Command, Skill, Hook) which are abstractions built ON TOP of the building block.
 : *See also:* Augmented LLM
@@ -84,7 +84,7 @@ AskUserQuestion(questions=[{
 
 **Component**
 : Claude Code abstractions for organizing agent capabilities: 🐦 Subagent, 🦴 Slash Command, 📚 Skill, 🪝 Hook.
-: ⚠️ **Not to be confused with:** 🧱 Building Block (Anthropic's Augmented LLM concept).
+: ⚠️ **Not to be confused with:** 🦄 Building Block (Anthropic's Augmented LLM concept).
 
 **Context Management**
 : Automatic compaction and context management to ensure agents don't run out of context. Core capability of Claude Agent SDK.

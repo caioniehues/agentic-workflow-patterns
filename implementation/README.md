@@ -17,7 +17,7 @@
 ```
 ┌─────────────────────────────────────────────────────────────────────────────┐
 │                                                                             │
-│  🧱 BUILDING BLOCK (Anthropic)         COMPONENTS (Claude Code)            │
+│  🦄 BUILDING BLOCK (Anthropic)         COMPONENTS (Claude Code)            │
 │  ─────────────────────────────         ────────────────────────            │
 │                                                                             │
 │  Augmented LLM                         🐦 Subagent                         │

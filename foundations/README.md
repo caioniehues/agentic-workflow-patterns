@@ -2,7 +2,7 @@
 
 # Foundations
 
-[🏠 Home](../README.md) • **🧱 Foundations** • [⚙️ Workflows](../workflows/) • [🐉 Agents](../agents/) • [🛠️ Implementation](../implementation/) • [🗺️ Guides](../guides/)
+[🏠 Home](../README.md) • **🦄 Foundations** • [⚙️ Workflows](../workflows/) • [🐉 Agents](../agents/) • [🛠️ Implementation](../implementation/) • [🗺️ Guides](../guides/)
 
 </div>
 
@@ -16,12 +16,12 @@
 
 | Document | Description |
 |----------|-------------|
-| [🧱 Augmented LLM](augmented-llm.md) | The building block for all workflows and agents |
+| [🦄 Augmented LLM](augmented-llm.md) | The building block for all workflows and agents |
 
 ---
 
 <div align="center">
 
-[🏠 Home](../README.md) • **🧱 Foundations** • [⚙️ Workflows](../workflows/) • [🐉 Agents](../agents/) • [🛠️ Implementation](../implementation/) • [🗺️ Guides](../guides/)
+[🏠 Home](../README.md) • **🦄 Foundations** • [⚙️ Workflows](../workflows/) • [🐉 Agents](../agents/) • [🛠️ Implementation](../implementation/) • [🗺️ Guides](../guides/)
 
 </div>

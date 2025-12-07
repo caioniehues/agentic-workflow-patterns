@@ -2,7 +2,7 @@
 
 # Agents
 
-[🏠 Home](../README.md) • [🧱 Foundations](../foundations/) • [⚙️ Workflows](../workflows/) • **🐉 Agents** • [🛠️ Implementation](../implementation/) • [🗺️ Guides](../guides/)
+[🏠 Home](../README.md) • [🦄 Foundations](../foundations/) • [⚙️ Workflows](../workflows/) • **🐉 Agents** • [🛠️ Implementation](../implementation/) • [🗺️ Guides](../guides/)
 
 </div>
 
@@ -66,6 +66,6 @@ Agents can be used for **open-ended problems** where:
 
 <div align="center">
 
-[🏠 Home](../README.md) • [🧱 Foundations](../foundations/) • [⚙️ Workflows](../workflows/) • **🐉 Agents** • [🛠️ Implementation](../implementation/) • [🗺️ Guides](../guides/)
+[🏠 Home](../README.md) • [🦄 Foundations](../foundations/) • [⚙️ Workflows](../workflows/) • **🐉 Agents** • [🛠️ Implementation](../implementation/) • [🗺️ Guides](../guides/)
 
 </div>

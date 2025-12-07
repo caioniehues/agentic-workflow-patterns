@@ -1,6 +1,6 @@
 <div align="center">
 
-[🏠 Home](../README.md) › [Foundations](./) › **🧱 Augmented LLM**
+[🏠 Home](../README.md) › [Foundations](./) › **🦄 Augmented LLM**
 
 [← Foundations](./) ━━━━━━━━━━━━━━━━━━●━━━━━━━━━━━━━━━━━━ [Workflows →](../workflows/)
 
@@ -8,7 +8,7 @@
 
 ---
 
-# 🧱 The Augmented LLM
+# 🦄 The Augmented LLM
 
 > **TL;DR:** The foundation of ALL agentic systems — an LLM enhanced with retrieval, tools, and memory. Every workflow builds on this.
 
@@ -60,7 +60,7 @@ All workflows assume each LLM call has access to these augmented capabilities.
 
 ```
 ┌─────────────────────────────────────────────────────────────────────────────┐
-│                    🧱 BUILDING BLOCK = AUGMENTED LLM                        │
+│                    🦄 BUILDING BLOCK = AUGMENTED LLM                        │
 │                       (foundation for ALL workflows)                        │
 ├───────────────┬───────────────┬───────────────┬─────────────────────────────┤
 │   Retrieval   │    Tools      │    Memory     │            LLM              │
@@ -68,7 +68,7 @@ All workflows assume each LLM call has access to these augmented capabilities.
 └───────────────┴───────────────┴───────────────┴─────────────────────────────┘
 ```
 
-> - **🧱 Building Block** = Augmented LLM (Anthropic's foundation concept)
+> - **🦄 Building Block** = Augmented LLM (Anthropic's foundation concept)
 > - **Components** = Claude Code abstractions (🐦 Subagent, 🦴 Slash Command, 📚 Skill, 🪝 Hook)
 > - **Layers** = Architectural organization (User → Main Agent → Delegation → Execution → State)
 
