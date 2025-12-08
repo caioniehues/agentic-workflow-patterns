@@ -23,9 +23,9 @@
 **Agent**
 : ⚠️ **Ambiguous term** — can mean:
 : 1. **Generic:** Any autonomous AI system (Main Agent, Subagent)
-: 2. **Anthropic Pattern #6:** System where LLMs **dynamically direct their own processes** (🐉 Autonomous Agents)
+: 2. **Anthropic Pattern #6:** System where LLMs **dynamically direct their own processes** (🐔 Autonomous Agent)
 : In Claude Code, the 🐔 Main Agent orchestrates all operations. Contrast Agents (pattern) with Workflows.
-: *See also:* Main Agent, Subagent, 🐉 Autonomous Agent
+: *See also:* Main Agent, Subagent, 🐔 Autonomous Agent
 
 **Agentic Systems**
 : Umbrella term for any system using LLMs with tool-calling and control flow. Encompasses both Workflows (predefined orchestration) and Agents (dynamic direction).
@@ -45,7 +45,7 @@ AskUserQuestion(questions=[{
 }])
 ```
 
-**🐉 Autonomous Agent**
+**🐔 Autonomous Agent**
 : An agent that independently plans, executes, and adapts without constant human guidance. The only true "Agent" pattern in Anthropic's taxonomy (vs Workflows).
 : *Also known as:* Self-Directed Agent, True Agent
 
@@ -163,7 +163,7 @@ AskUserQuestion(questions=[{
 : Capability (like Skills) that Claude autonomously decides when to use based on context. Contrast with User-invoked (Slash Commands).
 
 **🖥️ Multi-Window Context**
-: Claude Code pattern for checkpointing and resuming long workflows. Implementation of 🐉 Autonomous Agents.
+: Claude Code pattern for checkpointing and resuming long workflows. Implementation of 🐔 Autonomous Agent.
 : *See:* [Multi-Window Context](../concepts/agents/multi-window-context.md)
 
 ---

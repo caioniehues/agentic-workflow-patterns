@@ -81,7 +81,7 @@
 | 🛤️ | Parallelization | Workflow (#3) |
 | 🦑 | Orchestrator-Workers | Workflow (#4) |
 | 🩻 | Evaluator-Optimizer | Workflow (#5) |
-| 🐉 | Autonomous Agents | Agent (#6) |
+| 🐔 | Autonomous Agent | The Alternative |
 | 🧙 | Wizard Workflows | Variant |
 | 🚂 | Parallel Tool Calling | Variant |
 | 🧬 | Master-Clone | Variant |

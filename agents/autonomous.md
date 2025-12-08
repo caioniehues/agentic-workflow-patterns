@@ -1,14 +1,14 @@
 <div align="center">
 
-[🏠 Home](../README.md) › [Agents](./) › **🐉 Autonomous Agents**
+[🏠 Home](../README.md) › [Autonomous](./) › **🐔 Autonomous Agent**
 
-[← Agents](./) ━━━━━━━━━━━━━━━━━━━━━━●━━━━━━━━━━━━━ [Multi-Window Context →](multi-window.md)
+[← Autonomous](./) ━━━━━━━━━━━━━━━━━━━━━━●━━━━━━━━━━━━━ [Multi-Window Context →](multi-window.md)
 
 </div>
 
 ---
 
-# 🐉 Autonomous Agents
+# 🐔 Autonomous Agent
 
 > **TL;DR:** Long-running agents that independently plan, execute, and adapt based on environment feedback. Maximum autonomy, but requires guardrails.
 
@@ -58,7 +58,7 @@ stateDiagram-v2
 
 ```
 ┌─────────────────────────────────────────────────────────────────────────────┐
-│  🐉 AUTONOMOUS AGENTS: What Makes Them Different                            │
+│  🐔 AUTONOMOUS AGENT: What Makes It Different                               │
 ├─────────────────────────────────────────────────────────────────────────────┤
 │                                                                             │
 │  Agents are emerging in production as LLMs mature in key capabilities:      │
@@ -210,6 +210,6 @@ Agent:
 
 <div align="center">
 
-[← Agents](./) ━━━━━━━━━━━━━━━━━━━━━━●━━━━━━━━━━━━━ [Multi-Window Context →](multi-window.md)
+[← Autonomous](./) ━━━━━━━━━━━━━━━━━━━━━━●━━━━━━━━━━━━━ [Multi-Window Context →](multi-window.md)
 
 </div>

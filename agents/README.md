@@ -1,43 +1,46 @@
 <div align="center">
 
-# Agents
+# 🐔 Autonomous Agent
 
-[🏠 Home](../README.md) • [🦄 Foundations](../foundations/) • [⚙️ Workflows](../workflows/) • **🐉 Agents** • [🛠️ Implementation](../implementation/) • [🗺️ Guides](../guides/)
+[🏠 Home](../README.md) • [🦄 Foundations](../foundations/) • [⚙️ Workflows](../workflows/) • **🐔 Autonomous** • [🛠️ Implementation](../implementation/) • [🗺️ Guides](../guides/)
 
 </div>
 
 ---
 
-> **TL;DR:** Dynamic systems where LLMs control their own processes. Maximum autonomy, maximum flexibility.
+> **TL;DR:** THE alternative to workflows. When the LLM controls its own process instead of following predefined paths.
 
 ---
 
-## What are Agents?
+## What is the Autonomous Agent?
 
 > "**Agents** are systems where LLMs **dynamically direct their own processes** and tool usage, maintaining control over how they accomplish tasks."
 > — Anthropic, Building Effective Agents
 
 ```
 ┌─────────────────────────────────────────────────────────────────────────────┐
-│                                AGENTS                                        │
+│                      🐔 AUTONOMOUS AGENT                                     │
 ├─────────────────────────────────────────────────────────────────────────────┤
 │                                                                             │
-│  🐉 Autonomous Agents    → Self-directed with environment feedback          │
-│  🖥️ Multi-Window Context → State persistence across sessions                │
+│  The ALTERNATIVE to Workflows when:                                         │
+│  • Steps are unpredictable                                                  │
+│  • Path is open-ended                                                       │
+│  • LLM needs to decide what to do next                                      │
 │                                                                             │
-│  KEY: LLM controls the flow (flexible, autonomous)                          │
+│  ⚙️ Workflows = code controls the flow (predefined paths)                   │
+│  🐔 Autonomous = LLM controls the flow (dynamic decisions)                  │
 │                                                                             │
 └─────────────────────────────────────────────────────────────────────────────┘
 ```
 
 ---
 
-## Agent Index
+## Index
 
-| Agent | Emoji | Description | Complexity |
-|-------|:-----:|-------------|:----------:|
-| [Autonomous Agents](autonomous.md) | 🐉 | Self-directed with environment feedback | Very High |
-| [Multi-Window Context](multi-window.md) | 🖥️ | State persistence across sessions | High |
+| Pattern | Emoji | Description | Complexity |
+|---------|:-----:|-------------|:----------:|
+| [Autonomous Agent](autonomous.md) | 🐔 | Self-directed with environment feedback | Very High |
+| [Multi-Window Context](multi-window.md) | 🖥️ | State persistence across sessions (variant) | High |
 
 ---
 
@@ -66,6 +69,6 @@ Agents can be used for **open-ended problems** where:
 
 <div align="center">
 
-[🏠 Home](../README.md) • [🦄 Foundations](../foundations/) • [⚙️ Workflows](../workflows/) • **🐉 Agents** • [🛠️ Implementation](../implementation/) • [🗺️ Guides](../guides/)
+[🏠 Home](../README.md) • [🦄 Foundations](../foundations/) • [⚙️ Workflows](../workflows/) • **🐔 Autonomous** • [🛠️ Implementation](../implementation/) • [🗺️ Guides](../guides/)
 
 </div>

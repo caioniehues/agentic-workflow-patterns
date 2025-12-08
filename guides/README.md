@@ -33,7 +33,7 @@
 | Independent subtasks | 🛤️ Parallelization |
 | Specialized experts | 🦑 Orchestrator-Workers |
 | Quality-critical | 🩻 Evaluator-Optimizer |
-| Open-ended | 🐉 Autonomous Agents |
+| Open-ended | 🐔 Autonomous Agent |
 
 ### By Characteristics
 

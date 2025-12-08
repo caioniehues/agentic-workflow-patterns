@@ -14,7 +14,7 @@
 [![PRs Welcome](https://img.shields.io/badge/PRs-Welcome-06b6d4?style=flat-square)](CONTRIBUTING.md)
 [![Mermaid](https://img.shields.io/badge/Mermaid-Diagrams-f59e0b?style=flat-square&logo=mermaid&logoColor=white)](https://mermaid.js.org/)
 
-[🦄 Foundations](foundations/) • [⚙️ Workflows](workflows/) • [🐉 Agents](agents/) • [🛠️ Implementation](implementation/) • [🗺️ Guides](guides/)
+[🦄 Foundations](foundations/) • [⚙️ Workflows](workflows/) • [🐔 Autonomous](agents/) • [🛠️ Implementation](implementation/) • [🗺️ Guides](guides/)
 
 </div>
 
@@ -35,8 +35,8 @@ mindmap
       🛤️ Parallel
       🦑 Orchestrator
       🩻 Evaluator
-    🐉 Agents
-      Autonomous
+    🐔 Autonomous Agent
+      The Alternative
       Multi-Window
     🛠️ Implementation
       🐦 Subagent
@@ -77,13 +77,13 @@ mindmap
 </td>
 <td width="50%" valign="top">
 
-### 🐉 [Agents](agents/)
+### 🐔 [Autonomous Agent](agents/)
 *Dynamic autonomy — LLM controls the flow*
 
-| Agent | Use When |
-|-------|----------|
-| [🐉 Autonomous](agents/autonomous.md) | Open-ended problems |
-| [🖥️ Multi-Window](agents/multi-window.md) | Cross-session state |
+| Pattern | Use When |
+|---------|----------|
+| [🐔 Autonomous Agent](agents/autonomous.md) | Open-ended problems |
+| [🖥️ Multi-Window](agents/multi-window.md) | Cross-session state (variant) |
 
 ---
 
@@ -125,7 +125,7 @@ flowchart LR
     COMP -->|No| BASE[🏎️ Baseline]
     COMP -->|Yes| PRED{Predictable<br/>steps?}
     PRED -->|Yes| WORK{Need<br/>specialists?}
-    PRED -->|No| AGENT[🐉 Agent]
+    PRED -->|No| AGENT[🐔 Autonomous]
     WORK -->|No| CHAIN[⛓️ Chain]
     WORK -->|Yes| ORCH[🦑 Orchestrator]
 
@@ -156,7 +156,7 @@ flowchart LR
 | Independent subtasks | [🛤️ Parallelization](workflows/03-parallelization.md) |
 | Multiple specialists | [🦑 Orchestrator-Workers](workflows/04-orchestrator-workers.md) |
 | Quality iteration | [🩻 Evaluator-Optimizer](workflows/05-evaluator-optimizer.md) |
-| Open-ended / unknown steps | [🐉 Autonomous Agent](agents/autonomous.md) |
+| Open-ended / unknown steps | [🐔 Autonomous Agent](agents/autonomous.md) |
 | Destructive operations | [🧙 Wizard](workflows/01-prompt-chaining.md#advanced-wizard-pattern) |
 | Long-running (>10 min) | [🖥️ Multi-Window Context](agents/multi-window.md) |
 
@@ -177,10 +177,10 @@ flowchart LR
         W6[🩻 Evaluator]
     end
 
-    subgraph AGENTS["🐉 AGENTS"]
+    subgraph AGENTS["🐔 AUTONOMOUS AGENT"]
         direction TB
-        A1[🐉 Autonomous]
-        A2[🖥️ Multi-Window]
+        A1[🐔 The Alternative]
+        A2[🖥️ Multi-Window variant]
     end
 
     CODE[📝 Code controls] --> WORKFLOWS
@@ -249,9 +249,9 @@ flowchart LR
 │   ├── 04-orchestrator-workers.md
 │   └── 05-evaluator-optimizer.md
 │
-├── agents/                        # 🐉 Autonomous systems
-│   ├── autonomous.md
-│   └── multi-window.md
+├── agents/                        # 🐔 Autonomous Agent (the alternative)
+│   ├── autonomous.md              # The pattern
+│   └── multi-window.md            # Variant
 │
 ├── implementation/                # 🛠️ Claude Code specifics
 │   ├── components/                # 🐦🦴📚🪝

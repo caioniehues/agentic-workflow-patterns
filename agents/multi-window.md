@@ -1,8 +1,8 @@
 <div align="center">
 
-[🏠 Home](../README.md) › [Agents](./) › **🖥️ Multi-Window Context**
+[🏠 Home](../README.md) › [Autonomous](./) › **🖥️ Multi-Window Context**
 
-[← Autonomous Agents](autonomous.md) ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━●━━ [Agents →](./)
+[← Autonomous Agent](autonomous.md) ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━●━━ [Autonomous →](./)
 
 </div>
 
@@ -219,6 +219,6 @@ if os.path.exists(checkpoint_file):
 
 <div align="center">
 
-[← Autonomous Agents](autonomous.md) ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━●━━ [Agents →](./)
+[← Autonomous Agent](autonomous.md) ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━●━━ [Autonomous →](./)
 
 </div>

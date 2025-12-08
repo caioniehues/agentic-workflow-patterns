@@ -2,7 +2,7 @@
 
 # Foundations
 
-[🏠 Home](../README.md) • **🦄 Foundations** • [⚙️ Workflows](../workflows/) • [🐉 Agents](../agents/) • [🛠️ Implementation](../implementation/) • [🗺️ Guides](../guides/)
+[🏠 Home](../README.md) • **🦄 Foundations** • [⚙️ Workflows](../workflows/) • [🐔 Autonomous](../agents/) • [🛠️ Implementation](../implementation/) • [🗺️ Guides](../guides/)
 
 </div>
 
@@ -22,6 +22,6 @@
 
 <div align="center">
 
-[🏠 Home](../README.md) • **🦄 Foundations** • [⚙️ Workflows](../workflows/) • [🐉 Agents](../agents/) • [🛠️ Implementation](../implementation/) • [🗺️ Guides](../guides/)
+[🏠 Home](../README.md) • **🦄 Foundations** • [⚙️ Workflows](../workflows/) • [🐔 Autonomous](../agents/) • [🛠️ Implementation](../implementation/) • [🗺️ Guides](../guides/)
 
 </div>

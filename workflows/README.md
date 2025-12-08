@@ -2,7 +2,7 @@
 
 # Workflows
 
-[🏠 Home](../README.md) • [🦄 Foundations](../foundations/) • **⚙️ Workflows** • [🐉 Agents](../agents/) • [🛠️ Implementation](../implementation/) • [🗺️ Guides](../guides/)
+[🏠 Home](../README.md) • [🦄 Foundations](../foundations/) • **⚙️ Workflows** • [🐔 Autonomous](../agents/) • [🛠️ Implementation](../implementation/) • [🗺️ Guides](../guides/)
 
 </div>
 
@@ -74,6 +74,6 @@ Quality iteration needed      → 🩻 Evaluator-Optimizer
 
 <div align="center">
 
-[🏠 Home](../README.md) • [🦄 Foundations](../foundations/) • **⚙️ Workflows** • [🐉 Agents](../agents/) • [🛠️ Implementation](../implementation/) • [🗺️ Guides](../guides/)
+[🏠 Home](../README.md) • [🦄 Foundations](../foundations/) • **⚙️ Workflows** • [🐔 Autonomous](../agents/) • [🛠️ Implementation](../implementation/) • [🗺️ Guides](../guides/)
 
 </div>
